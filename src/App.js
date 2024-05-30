@@ -7,6 +7,8 @@ import './Styles/dashboard.css';
 import TotalCasesChart from './components/TotalCasesChart';
 import Header from './components/Header';
 import Loader from './components/Loader';
+import FundDeposited from './components/FundDeposited';
+import OtherCard from './components/OtherCard';
 
 function App() {
   return (
@@ -31,6 +33,10 @@ function AuthenticatedRoutes() {
           <Route path="/settings" element={<TotalCasesChart />} />
           <Route path="/genratereport" element={<TotalCasesChart />} />
           <Route path="/uploadexcel" element={<TotalCasesChart />} />
+          <Route path="/card1" element={<FundDeposited />} />
+          <Route path="/card/:id" element={<OtherCard />} />
+          <Route path="/card/:id" element={<OtherCard />} />
+          <Route path="/card/:id" element={<OtherCard />} />
         </Routes>
       </div>
     </div>

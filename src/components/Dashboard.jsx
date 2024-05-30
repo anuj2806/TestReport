@@ -20,6 +20,7 @@ import userAvtar from '../assests/profile.png'
 import upload from '../assests/upload.png'
 import filter from '../assests/filter.png'
 import edit from '../assests/edit.png'
+import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
   return (
@@ -44,19 +45,22 @@ const Dashboard = () => {
                 </Box>
             </Grid>
             <Grid item xs={6} md={3} >
+                <Link to={'/card1'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined">
                     <CardContent className='datatiles' style={{backgroundColor:'#F1F5FE'}}>
                         <Stack >
                             <Stack direction={'row'} gap={2}>
                                 <img src={one} alt="" width={'40px'} height={'40px'}/>
-                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Fund Deposited</Typography>
+                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'} >Fund Deposited</Typography>
                             </Stack>
                                 <Typography variant="h5" component="h5" align='center'>9</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
+                </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
+            <Link to={'/card/2'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent >
                         <Stack >
@@ -68,8 +72,10 @@ const Dashboard = () => {
                         </Stack>
                     </CardContent>
                 </Card>
+            </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
+            <Link to={'/card/3'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent>
                         <Stack >
@@ -81,8 +87,10 @@ const Dashboard = () => {
                         </Stack>
                     </CardContent>
                 </Card>
+            </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
+            <Link to={'/card/4'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent>
                         <Stack >
@@ -94,6 +102,7 @@ const Dashboard = () => {
                         </Stack>
                     </CardContent>
                 </Card>
+                </Link>
             </Grid>
             <Grid item xs={12} md={6}>
                 <Card  >
