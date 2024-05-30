@@ -2,3 +2,32 @@
     display: flex;
     justify-content: space-between;
 }
+.legend-item {
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5em; /* Adjust the padding as needed */
+  }
+  
+  .legend-item::before {
+    content: "";
+    display: inline-block;
+    width: 15px; /* Adjust the size of the dot */
+    height: 15px; /* Adjust the size of the dot */
+    border-radius: 50%;
+    background-color: currentColor; /* This will inherit the color from the li's color */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .numberCircle{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: brown;
+    border-radius: 50%;
+  }
+  .numberCircle p{
+  margin-top: 10px;
+  }

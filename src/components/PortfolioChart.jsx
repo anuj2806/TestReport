@@ -9,11 +9,11 @@ const PortfolioChart = () => {
       ];
   return (
     <>
-      <h3 >Total Cases by Branch</h3>
+      <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Total Cases by Branch</h3>
       <div style={{height: 200 }}>
         <ResponsiveContainer>
-          <PieChart width={300} height={300}>
-            <Pie data={data1} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
+          <PieChart width={280} height={280}>
+            <Pie data={data1} dataKey="value" cx="50%" cy="48%" innerRadius={55} outerRadius={80} fill="#82ca9d" label />
             <Legend layout="vertical" verticalAlign="middle" align="right" iconType="circle" />
           </PieChart>
         </ResponsiveContainer>

@@ -36,41 +36,41 @@ const TotalCasesChart = () => {
 
   return (
     <>
-      <h3 >Portfolio Health</h3>
-      <div>
+    <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Portfolio Health</h3>
+    <div style={{height: 200}}>
         <div style={{position:'relative'}}>
-      <div style={{  height: 200 }}>
-      <ResponsiveContainer>
-        <FunnelChart >
-          <Tooltip />
-          <Funnel
-            dataKey="value"
-            data={data}
-            isAnimationActive
-            width={400} 
-          >
-            {/* <LabelList position="right" fill="#000" stroke="none" dataKey="name" /> */}
-            <LabelList position="centre" fill="#000" stroke="none" dataKey="value"/>
-          </Funnel>
-          {/* <Legend layout="vertical" verticalAlign="centre" align="right" payload={data.map(item => ({ value: item.name, type: 'circle', color: item.fill }))} /> */}
-        </FunnelChart>
-      </ResponsiveContainer>
-      </div>
-      <div style={{position:'absolute'}}>
+            <div style={{ width:'80%', height: 200 }}>
+            <ResponsiveContainer>
+                <FunnelChart >
+                <Tooltip />
+                <Funnel
+                    dataKey="value"
+                    data={data}
+                    isAnimationActive
+                    width={400} 
+                >
+                    <LabelList position="centre" fill="#000" stroke="none" dataKey="value"/>
+                </Funnel>
+                </FunnelChart>
+            </ResponsiveContainer>
+            </div>
+            <div style={{position:'absolute',right:'10px',top:'50px'}}>
                 <div>
-                        <ul><li>Name</li></ul>
-
+                    <ul>
+                        {data.map(item => (
+                            <li style={{color:item.fill,}} className="legend-item">{item.name}</li>
+                        ))}
+                    </ul>        
                 </div>
-      </div>
-      </div>
-      <text
-            
-            
+            </div>
+            <text
             dominantBaseline="middle"
-            style={{ fontSize: '16px', fontWeight: 'bold',marginLeft:'30%'}}
+            style={{ fontSize: '16px', fontWeight: 'bold',marginLeft:'33%'}}
           >
             Total {totalValue}
-          </text>
+        </text>
+        </div>
+        
     </div>
     
     </>

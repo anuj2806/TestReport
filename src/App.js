@@ -1,25 +1,40 @@
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
-import NavBar from './components/NavBar';
+import NavBar from './components/SideNavBar';
 import Dashboard from './components/Dashboard';
 import { Stack } from '@mui/material';
-import './Styles/nav.css';
+import './Styles/sidenav.css';
 import './Styles/dashboard.css';
 import TotalCasesChart from './components/TotalCasesChart';
+import Header from './components/Header';
+import Loader from './components/Loader';
+
 function App() {
   return (
     <Router>
-      <div style={{display:'flex'}}>
-      <NavBar />
-
-      <Routes >
-        <Route path='/' element={<Dashboard/>}/>
-        <Route path='/settings' element={<TotalCasesChart/>}/>
-
+      <Routes>
+        <Route path="/" element={<Loader />} />
+        <Route path="/*" element={<AuthenticatedRoutes />} />
       </Routes>
-      </div>
     </Router>
-    
-  )
+  );
+}
+
+function AuthenticatedRoutes() {
+  return (
+    <div style={{display:'flex'}}>
+      <NavBar />
+      <div style={{width:'90%'}}>
+        <Header/>
+        <Routes >
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/customer" element={<TotalCasesChart />} />
+          <Route path="/settings" element={<TotalCasesChart />} />
+          <Route path="/genratereport" element={<TotalCasesChart />} />
+          <Route path="/uploadexcel" element={<TotalCasesChart />} />
+        </Routes>
+      </div>
+    </div>
+  );
 }
 
 export default App;

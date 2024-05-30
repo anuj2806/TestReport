@@ -14,18 +14,18 @@ const ChannelsChart = () => {
           }]
     return (
         <>
-      <h3 >Channels</h3>
+      <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Channels</h3>
       <div style={{height: 200 }}>
         <ResponsiveContainer >
           <BarChart
             data={data}
           >
-            <CartesianGrid stroke="3" />
+            <CartesianGrid stroke="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Legend payload={ [{ value:'Shares' , type: 'circle', color:"#5BC0DE" },{ value:'Mutual Funds' , type: 'circle', color: "#FFD700"}]} />
-            <Bar dataKey="value"  activeBar={<Rectangle fill="blue" stroke="blue" />} />
+            <Legend  layout="vertical" verticalAlign="middle" align="right" payload={ [{ value:'Shares' , type: 'circle', color:"#5BC0DE" },{ value:'Mutual Funds' , type: 'circle', color: "#FFD700"}]} />
+            <Bar dataKey="value" barSize={30}  activeBar={<Rectangle fill="blue" stroke="blue" />} />
           </BarChart>
         </ResponsiveContainer>
         </div>
