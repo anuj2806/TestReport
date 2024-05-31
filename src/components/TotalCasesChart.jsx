@@ -58,7 +58,7 @@ const TotalCasesChart = () => {
                 <div>
                     <ul>
                         {data.map(item => (
-                            <li style={{color:item.fill,}} className="legend-item">{item.name}</li>
+                            <li style={{color:item.fill,fontFamily:'Inter'}} className="legend-item">{item.name}</li>
                         ))}
                     </ul>        
                 </div>

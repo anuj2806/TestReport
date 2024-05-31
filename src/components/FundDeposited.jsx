@@ -32,7 +32,7 @@ const FundDeposited = () => {
                         <Stack direction={'column'} alignItems={'center'}>
                             <Stack direction={'row'} gap={2}>
                             <GoAlert size={25} color="red"/>
-                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margine Below 25</Typography>
+                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margin Below 25</Typography>
                             </Stack>
                             <AvatarGroup max={4}>
                                 <Avatar alt="Travis Howard" src={p2} />
@@ -52,7 +52,7 @@ const FundDeposited = () => {
                         <Stack direction={'column'} alignItems={'center'}>
                             <Stack direction={'row'} gap={2}>
                             <FaRegThumbsDown size={25} color="red"/>
-                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margine Below 25</Typography>
+                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margin Below 25</Typography>
                             </Stack>
                             <AvatarGroup max={4}>
                                 <Avatar alt="Travis Howard" src={p2} />
@@ -72,7 +72,7 @@ const FundDeposited = () => {
                         <Stack direction={'column'} alignItems={'center'}>
                             <Stack direction={'row'} gap={2}>
                             <AiOutlineAlert size={25} color="red"/>
-                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margine Below 25</Typography>
+                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margin Below 25</Typography>
                             </Stack>
                             <AvatarGroup max={4}>
                                 <Avatar alt="Travis Howard" src={p2} />

@@ -46,3 +46,6 @@
 input[type="file"] {
     display: none;
 }
+span{
+    font-family: 'Inter';
+}

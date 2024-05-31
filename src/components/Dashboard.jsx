@@ -136,7 +136,7 @@ const Dashboard = () => {
                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'500'}>Customer 360</Typography>
                                     <Stack direction={'row'} justifyContent={'space-between'}>
                                         <img src={userAvtar} alt="avtar" width={50} height={50}/>
-                                        <Button size='small' color='warning' >Search Customer</Button>
+                                        <button  style={{backgroundColor:'#fd7e14',color:'white',border:'none',height:'40px',borderRadius:'5px',width:'70%',marginTop:'5px',fontFamily:'Inter',fontWeight:'600'}} >Search Customer</button>
                                     </Stack>
                                 </Stack>
                             </CardContent>
@@ -146,7 +146,7 @@ const Dashboard = () => {
                         <div>
                                 <Stack direction={'column'} gap={1} height={'130px'}>
                                     <Card >
-                                        <CardContent >
+                                        <CardContent style={{backgroundColor:'#FFD8D4'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'} mt={-1}>
                                                 <div className='numberCircle'><p>2</p></div>
                                                 <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'600'}>Second Notice</Typography>
@@ -154,7 +154,7 @@ const Dashboard = () => {
                                         </CardContent>
                                     </Card>
                                     <Card >
-                                        <CardContent>
+                                        <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'}  mt={-1}>
                                             <div className='numberCircle'><p>1</p></div>
                                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'600'}>First Notice</Typography>
@@ -166,12 +166,12 @@ const Dashboard = () => {
                     </Grid>
                     <Grid item xs={12} >
                         <Card >
-                            <CardContent>
+                            <CardContent >
                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'} >Highlighted Profiles</Typography>
                             <Grid container xs={12} spacing={1}>
                                 <Grid item xs={12}>
                                     <Card  >
-                                        <CardContent>
+                                        <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
                                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Cases with 3 Days Deadline</Typography>
@@ -190,7 +190,7 @@ const Dashboard = () => {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Card  >
-                                        <CardContent>
+                                        <CardContent style={{backgroundColor:'#FFD8D4'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
                                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Cases with 5days Deadline</Typography>
@@ -209,7 +209,7 @@ const Dashboard = () => {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Card  >
-                                        <CardContent>
+                                        <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
                                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Margin Under Review</Typography>
