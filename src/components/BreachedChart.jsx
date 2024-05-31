@@ -2,6 +2,7 @@ import React from 'react'
 import { PieChart, Pie, Legend, ResponsiveContainer } from 'recharts';
 
 const BreachedChart = () => {
+    
     const data1 = [
         { name: 'Margin 26-40%', value:25,fill: "#2589FB" },
         { name: 'Margin Below 25%', value: 40,fill: "#F42200" },
