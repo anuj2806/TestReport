@@ -108,6 +108,8 @@ const FundDeposited = () => {
                 component={Link}
                 to="/dashboard" >Back</Button>
             </Grid>
+            <Grid item xs={12} md={12}>
+                </Grid>
     </Grid>
   )
 }
