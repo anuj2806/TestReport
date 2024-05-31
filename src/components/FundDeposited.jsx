@@ -1,4 +1,4 @@
-import { Grid,Typography,Stack,Card,CardContent,AvatarGroup,Avatar, Button } from '@mui/material'
+import { Grid,Typography,Stack,Card,Box,CardContent,AvatarGroup,Avatar, Button } from '@mui/material'
 import React from 'react'
 import { GoAlert } from "react-icons/go";
 import { FaRegThumbsDown } from "react-icons/fa";
@@ -11,20 +11,20 @@ import p5 from '../assests/profiles/p5.png'
 import BreachedChart from './BreachedChart';
 import FundTable from './FundTable';
 import { Link } from 'react-router-dom'
+import SearchBar from './SearchBar';
 
 const FundDeposited = () => {
   return (
     <Grid container spacing={2} bgcolor={'#f9f9f9'} pr={2}>
             <Grid item xs={6} md={3} className='datatiles'>
-                    <Card >
+                    <Box >
                         <CardContent>
                             <Stack direction={'column'} alignItems={'center'}>
-                                
-                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'900'}>Quick Actions</Typography>
-                                
+                            <Typography variant="h5" component="h5" fontFamily={'Epilogue'} fontWeight={'900'} textAlign={'center'} mb={2} mt={2}>Quick Actions</Typography>
+                                <SearchBar/>
                             </Stack>
                         </CardContent>
-                    </Card>
+                    </Box>
          </Grid>
           <Grid item xs={6} md={3} className='datatiles'>
                 <Card variant="outlined">

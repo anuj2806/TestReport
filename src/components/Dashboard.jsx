@@ -21,6 +21,7 @@ import upload from '../assests/upload.png'
 import filter from '../assests/filter.png'
 import edit from '../assests/edit.png'
 import { Link } from 'react-router-dom'
+import VisuallyHiddenInput from './VisuallyHiddenInput'
 
 const Dashboard = () => {
   return (
@@ -32,7 +33,8 @@ const Dashboard = () => {
                     <Typography variant="h6" component="h6" fontFamily={'Epilogue'} fontWeight={'800'}>Dashboard</Typography>
                     <Stack direction={'row'} gap={[1,2]}>
                         <button>
-                            <img src={upload} alt="upload" width={20} height={20}/>
+                            <img src={upload} alt="upload" width={20} height={20} onClick={()=>(document.getElementById("hiddenUpload").click())}/>
+                            <input type="file" name="uploadexcel" id="hiddenUpload" />
                         </button>
                         <button>
                             <img src={filter} alt="filter" width={20} height={20}/>

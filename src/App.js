@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Loader from './components/Loader';
 import FundDeposited from './components/FundDeposited';
 import OtherCard from './components/OtherCard';
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function AuthenticatedRoutes() {
           <Route path="/card/:id" element={<OtherCard />} />
           <Route path="/card/:id" element={<OtherCard />} />
           <Route path="/card/:id" element={<OtherCard />} />
+          <Route path="/card/5" element={<SearchBar />} />
         </Routes>
       </div>
     </div>
