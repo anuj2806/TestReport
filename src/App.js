@@ -10,6 +10,7 @@ import OtherCard from './components/OtherCard';
 import SearchBar from './components/SearchBar';
 import Login from './components/LogIn';
 import { Grid } from '@mui/material';
+import CustomerDetails from './components/CustomerDetails';
 
 function App() {
   return (
@@ -35,10 +36,10 @@ function AuthenticatedRoutes() {
           <Grid item xs={12} md={12}> 
             <Routes >
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/customer" element={<TotalCasesChart />} />
-              <Route path="/settings" element={<TotalCasesChart />} />
-              <Route path="/genratereport" element={<TotalCasesChart />} />
-              <Route path="/uploadexcel" element={<TotalCasesChart />} />
+              <Route path="/customer" element={<CustomerDetails />} />
+              <Route path="/settings" element={<></>} />
+              <Route path="/genratereport" element={<></>} />
+              <Route path="/uploadexcel" element={<></>} />
               <Route path="/dashboard/:id" element={<FundDeposited />} />
               <Route path="/dashboardCustom/:id" element={<OtherCard />} />
             </Routes>
