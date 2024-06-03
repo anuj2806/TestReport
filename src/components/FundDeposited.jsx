@@ -1,5 +1,5 @@
 import { Grid,Typography,Stack,Card,Box,CardContent,AvatarGroup,Avatar, Button } from '@mui/material'
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import { GoAlert } from "react-icons/go";
 import { FaRegThumbsDown } from "react-icons/fa";
 import { AiOutlineAlert } from "react-icons/ai";
@@ -12,8 +12,18 @@ import BreachedChart from './BreachedChart';
 import FundTable from './FundTable';
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar';
+import {useSelector} from 'react-redux'
+import {useParams} from 'react-router-dom'
 
 const FundDeposited = () => {
+    const [data,setData]=useState([]);
+    const {fund} = useSelector((state)=>state.portfolioSummary);
+    const params =useParams();
+    useEffect(()=>{
+    if (params.id==='fundDeposited'){
+        setData(fund)
+    }
+},[params.id])
   return (
     <Grid container spacing={2} bgcolor={'#f9f9f9'} pr={2}>
             <Grid item xs={6} md={3} className='datatiles'>
@@ -96,7 +106,7 @@ const FundDeposited = () => {
             <Grid item xs={12} md={9}>
                 <Card >
                     <CardContent>
-                       <FundTable/>
+                       <FundTable tabledata={data}/>
                     </CardContent>
                 </Card>
             </Grid>

@@ -1,27 +1,31 @@
 import React,{useEffect, useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import axios from 'axios';
 import {Button } from '@mui/material'
 const columns = [
-    { field: 'S_NO', headerName: 'S. NO', width: 70 },
-    { field: 'Customer_Name', headerName: 'Customer Name', width: 130 },
-    { field: 'Security_Type', headerName: 'Security Type', width: 130 },
-    { field: 'Branch', headerName: 'Branch', width: 130 },
-    { field: 'State', headerName: 'State', width: 130 },
-    { field: 'CIF', headerName: 'CIF', width: 130 },
-    { field: 'Sanction_Amount', headerName: 'Sanction Amount', width: 130 },
-    { field: 'Sanction_Date', headerName: 'Sanction Date', width: 130 },
-    { field: 'End_date', headerName: 'End date', width: 130 },
-    { field: 'Total_Pledge_Value', headerName: 'Total Pledge Value', width: 130 },
-    { field: 'Margin_Used', headerName: 'Margin Used', width: 70 },
-    { field: 'Margin_Available', headerName: 'Margin Available', width: 70 },
-    { field: 'Margin_Available_Percentage', headerName: 'Margin Available Percentage', width: 70 },
+    { field: 'id', headerName: 'S. NO', width: 70 },
+    { field: 'cifId', headerName: 'CIF', width: 70 },
+    { field: 'customerName', headerName: 'Customer Name', width: 130 },
+    { field: 'securityType', headerName: 'Security Type', width: 130 },
+    { field: 'branch', headerName: 'Branch', width: 130 },
+    { field: 'state', headerName: 'State', width: 130 },
+    { field: 'sanctionAmount', headerName: 'Sanction Amount', width: 130 },
+    { field: 'tenure', headerName: 'Tenure', width: 70 },
+    { field: 'sanctionDate', headerName: 'Sanction Date', width: 130 },
+    { field: 'endDate', headerName: 'End date', width: 130 },
+    { field: 'totalPledgeValue', headerName: 'Total Pledge Value', width: 130 },
+    { field: 'marginUsed', headerName: 'Margin Used', width: 130 },
+    { field: 'marginAvailable', headerName: 'Margin Available', width: 130 },
+    { field: 'marginAvailablePercentage', headerName: 'Margin Available Percentage', width: 130 },
+    { field: 'fundDeposited', headerName: 'Fund Deposited', width: 130 },
+    { field: 'additionalCollateralDeposited', headerName: 'Additional Collateral Deposited', width: 130 },
+    { field: 'currentStatus', headerName: 'Current Status', width: 130 },
+    
     {
       field: "action",
       headerName: "Action",
       sortable: false,
       renderCell: (params) => {
-        return <Button>Click</Button>;
+        return <Button variant="contained" size='small' style={{marginTop:'-4px'}}>Click</Button>;
       }
     },
 ];
@@ -38,26 +42,13 @@ const columns = [
 //   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 // ];
 
-const FundTable = () => {
-    const [rows,setData] = useState([]);
-    useEffect(()=>{
-        const fetchData = async () =>{
-            try{
-            const {data} = await axios.get('http://localhost:4500/api/v1/product');
-            console.log(data.product);
-            data.product.map((e,i)=>e["id"]=i+1)
-            setData(data.product);
-            }catch{
-
-            }
-        }
-        fetchData();
-    },[]);
+const FundTable = ({tabledata}) => {
+    console.log(tabledata)
   return (
     <div style={{ height: 424, width: '100%' }}>
       <DataGrid
         rowHeight={35}
-        rows={rows}
+        rows={tabledata}
         columns={columns}
         initialState={{
           pagination: {

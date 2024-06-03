@@ -1,5 +1,5 @@
 import { Grid,Typography,Stack,Card,Box,CardContent,AvatarGroup,Avatar, Button } from '@mui/material'
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { GoAlert } from "react-icons/go";
 import { FaRegThumbsDown } from "react-icons/fa";
 import { AiOutlineAlert } from "react-icons/ai";
@@ -14,9 +14,20 @@ import { Link } from 'react-router-dom'
 
 import {useParams} from 'react-router-dom'
 import SearchBar from './SearchBar';
+import {useSelector} from 'react-redux'
 const OtherCard = () => {
+    const [data,setData]=useState([]);
+    const {collateral,partialSell,completedSell} = useSelector((state)=>state.portfolioSummary);
     const params =useParams();
-    params.id===2?<>2222</>:params.id===3?<>333</>:<>444</>
+    useEffect(() => {
+        if (params.id === 'collateral') {
+          setData(collateral);
+        } else if (params.id === 'partialSell') {
+          setData(partialSell);
+        } else if (params.id === 'completedSell') {
+          setData(completedSell);
+        }
+      }, [params.id]);
     return (
         <Grid container spacing={2} bgcolor={'#f9f9f9'} pr={2}>
                 <Grid item xs={4} md={3} className='datatiles'>
@@ -54,7 +65,7 @@ const OtherCard = () => {
                 <Grid item xs={12} md={12}>
                     <Card >
                         <CardContent>
-                           <FundTable/>
+                           <FundTable tabledata={data}/>
                         </CardContent>
                     </Card>
                 </Grid>

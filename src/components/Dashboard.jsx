@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button, Card, CardContent, Grid, Stack,Typography,AvatarGroup,Avatar, Box} from '@mui/material'
+import React,{useState,useEffect} from 'react'
+import { Card, CardContent, Grid, Stack,Typography,AvatarGroup,Avatar, Box} from '@mui/material'
 import one from '../assests/3.png'
 import two from '../assests/1.png'
 import three from '../assests/4.png'
@@ -21,11 +21,77 @@ import upload from '../assests/upload.png'
 import filter from '../assests/filter.png'
 import edit from '../assests/edit.png'
 import { Link } from 'react-router-dom'
-import VisuallyHiddenInput from './VisuallyHiddenInput'
-
+import axios from 'axios'
+import {useDispatch} from 'react-redux'
 const Dashboard = () => {
-  return (
-    
+    // const [funddata,setfunddata] = useState([]);
+    // const [collateraldata,setcollateraldata] = useState([]);
+    // const [partialSeldata,setpartialSeldata] = useState([]);
+    // const [completedSelldata,setcompletedSelldata] = useState([]);
+    const dispatch = useDispatch();
+    const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata) =>{
+        dispatch({
+          type:'fundAction',
+          payload:funddata, 
+        })
+        dispatch({
+          type:'collateralAction',
+          payload:collateraldata, 
+        })
+        dispatch({
+          type:'partialSellAction',
+          payload:partialSeldata, 
+        })
+        dispatch({
+          type:'completedSellAction',
+          payload:completedSelldata, 
+        })
+    }
+    useEffect(()=>{
+        const fetchData = async () =>{
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=FUND_DEPOSITED');
+            console.log(data);
+            var data1 = data;
+            data1.map((e,i)=>e["id"]=i+1);
+
+            }catch(error){
+                console.log(error)
+            }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=ADDITIONAL_COLLATERAL_DEPOSITED');
+            console.log(data);
+            var data2 = data;
+            data2.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=PARTIAL_SELL');
+            console.log(data);
+            var data3 = data;
+            data3.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=FULL_SELL');
+            console.log(data);
+            var data4 = data;
+            data4.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
+            
+            dispatchAction(data1,data2,data3,data4);
+        }
+        fetchData();
+
+    },[]);
+
+  return (  
+
+    <> 
         <Grid container  spacing={2} bgcolor={'#f9f9f9'} pr={2}>
              <Grid item xs={12} md={12}>
                 <Box  >
@@ -47,7 +113,7 @@ const Dashboard = () => {
                 </Box>
             </Grid>
             <Grid item xs={6} md={3} >
-                <Link to={'/card1'} style={{ textDecoration: 'none' }}>
+                <Link to={'/dashboard/fundDeposited'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined">
                     <CardContent className='datatiles' style={{backgroundColor:'#F1F5FE'}}>
                         <Stack >
@@ -62,7 +128,7 @@ const Dashboard = () => {
                 </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
-            <Link to={'/card/2'} style={{ textDecoration: 'none' }}>
+            <Link to={'/dashboardCustom/collateral'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent >
                         <Stack >
@@ -77,7 +143,7 @@ const Dashboard = () => {
             </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
-            <Link to={'/card/3'} style={{ textDecoration: 'none' }}>
+            <Link to={'/dashboardCustom/partialSell'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent>
                         <Stack >
@@ -92,7 +158,7 @@ const Dashboard = () => {
             </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
-            <Link to={'/card/4'} style={{ textDecoration: 'none' }}>
+            <Link to={'/dashboardCustom/completedSell'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent>
                         <Stack >
@@ -233,6 +299,7 @@ const Dashboard = () => {
                 </Grid>
             </Grid>
         </Grid>
+        </>
     
   )
 }

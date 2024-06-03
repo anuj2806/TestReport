@@ -39,11 +39,8 @@ function AuthenticatedRoutes() {
               <Route path="/settings" element={<TotalCasesChart />} />
               <Route path="/genratereport" element={<TotalCasesChart />} />
               <Route path="/uploadexcel" element={<TotalCasesChart />} />
-              <Route path="/card1" element={<FundDeposited />} />
-              <Route path="/card/:id" element={<OtherCard />} />
-              <Route path="/card/:id" element={<OtherCard />} />
-              <Route path="/card/:id" element={<OtherCard />} />
-              <Route path="/card/5" element={<SearchBar />} />
+              <Route path="/dashboard/:id" element={<FundDeposited />} />
+              <Route path="/dashboardCustom/:id" element={<OtherCard />} />
             </Routes>
           </Grid>
         </Grid>
