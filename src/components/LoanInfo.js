@@ -1,6 +1,12 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import { Email, Home, AttachMoney, AccountBalance, Error, Warning, Done, Security, TrendingUp, Report } from '@mui/icons-material';
+import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
+import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
+import ReportOutlinedIcon from '@mui/icons-material/ReportOutlined';
+import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 
 function LoanInfo() {
   const iconStyle = { color: 'blue', marginRight: '8px' };
@@ -12,12 +18,12 @@ function LoanInfo() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <TrendingUp style={iconStyle} />
+        <AlternateEmailOutlinedIcon style={iconStyle} />
         <div style={labellight}>Total Pledge Value</div>
         <div style={labelStyle}>INR 1,00,000</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <Home style={iconStyle} />
+        <HomeOutlinedIcon style={iconStyle} />
         <div style={labellight}>Branch</div>
         <div style={labelStyle}>Navi Nerul</div>
       </div>
@@ -32,7 +38,7 @@ function LoanInfo() {
         <div style={labelStyle}>INR 90,000</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <Error style={iconStyle} />
+        <ErrorOutlineOutlinedIcon style={iconStyle} />
         <div style={labellight}>Allowed Margin</div>
         <div style={labelStyle}>50%</div>
       </div>
@@ -42,12 +48,12 @@ function LoanInfo() {
         <div style={labelStyle}>INR 45,000</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <Warning style={iconStyle} />
+        <WarningAmberOutlinedIcon style={iconStyle} />
         <div style={labellight}>Outstanding</div>
         <div style={labelStyle}>INR 50,000</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <Report style={iconStyle} />
+        <ReportOutlinedIcon style={iconStyle} />
         <div style={labellight}>Current Overdue</div>
         <div style={labelStyle}>INR 5,000</div>
       </div>
@@ -57,17 +63,17 @@ function LoanInfo() {
         <div style={labelStyle}>INR 10,000</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <Error style={iconStyle} />
+        <ErrorOutlineOutlinedIcon style={iconStyle} />
         <div style={labellight}>Margin Breached</div>
         <div style={{ marginLeft: 'auto', ...iconStyle1 }}>44.44%</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <Email style={iconStyle} />
+        <MarkEmailReadOutlinedIcon style={iconStyle} />
         <div style={labellight}>Action Taken</div>
         <div style={{ marginLeft: 'auto',marginRight:'99px' }}>Email initiated for 5 day deadline</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <Warning style={iconStyle} />
+        <WarningAmberOutlinedIcon style={iconStyle} />
         <div style={labellight}>No. of Margin Breaches</div>
         <div style={labelStyle}>2</div>
       </div>
