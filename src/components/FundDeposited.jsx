@@ -129,4 +129,4 @@ const FundDeposited = () => {
   )
 }
 
-export default FundDeposited
+export default FundDeposited;
