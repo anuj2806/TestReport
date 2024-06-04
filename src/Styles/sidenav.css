@@ -3,7 +3,7 @@ nav{
     flex-direction: column;
     padding: 10px;
     flex: 20%;
-   
+    color: #4B7BEC ;
 }
 .userdetail{
     display: flex;
@@ -54,3 +54,10 @@ nav{
     align-items: center;
 
 }
+.Mui-selected
+{
+    color: white !important;
+    background-color: #4B7BEC !important;
+    border-radius: 5px !important;
+}
+

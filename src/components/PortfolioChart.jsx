@@ -9,7 +9,7 @@ const PortfolioChart = () => {
       ];
   return (
     <>
-      <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Total Cases by Branch</h3>
+      <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Portfolio Health</h3>
       <div style={{height: 200 }}>
         <ResponsiveContainer>
           <PieChart width={280} height={280}>

@@ -8,6 +8,7 @@ import p2 from '../assests/profiles/p2.png'
 import p3 from '../assests/profiles/p3.png'
 import p4 from '../assests/profiles/p4.png'
 import p5 from '../assests/profiles/p5.png'
+
 import BreachedChart from './BreachedChart';
 import FundTable from './FundTable';
 import { Link } from 'react-router-dom'
@@ -17,15 +18,22 @@ import SearchBar from './SearchBar';
 import {useSelector} from 'react-redux'
 const OtherCard = () => {
     const [data,setData]=useState([]);
-    const {collateral,partialSell,completedSell} = useSelector((state)=>state.portfolioSummary);
+    const [cardLabel,setCardLabel]=useState();
+    const {fund,collateral,partialSell,completedSell} = useSelector((state)=>state.portfolioSummary);
     const params =useParams();
     useEffect(() => {
-        if (params.id === 'collateral') {
+        if (params.id==='fundDeposited'){
+          setData(fund)
+          setCardLabel('Fund Deposited')
+        }else if (params.id === 'collateral') {
           setData(collateral);
+          setCardLabel('Additional Collateral')
         } else if (params.id === 'partialSell') {
           setData(partialSell);
+          setCardLabel('Partial Sell')
         } else if (params.id === 'completedSell') {
           setData(completedSell);
+          setCardLabel('Completed Sell')
         }
       }, [params.id]);
     return (
@@ -47,8 +55,8 @@ const OtherCard = () => {
                         <CardContent>
                             <Stack direction={'column'} alignItems={'center'}>
                                 <Stack direction={'row'} gap={2}>
-                                <GoAlert size={25} color="red"/>
-                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margine Below 25</Typography>
+                                {/* <GoAlert size={25} color="red"/> */}
+                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>{cardLabel}</Typography>
                                 </Stack>
                                 <AvatarGroup max={4}>
                                     <Avatar alt="Travis Howard" src={p2} />
@@ -56,7 +64,7 @@ const OtherCard = () => {
                                     <Avatar alt="Agnes Walker" src={p4} />
                                     <Avatar alt="Trevor Henderson" src={p5} />
                                     </AvatarGroup>
-                                <CiMail size={30} color="blue"/>
+                                <CiMail size={40} color="blue"/>
                                 <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontSize={'12px'}>Send Email For Sell</Typography>
                             </Stack>
                         </CardContent>

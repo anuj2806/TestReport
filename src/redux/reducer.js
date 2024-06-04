@@ -4,6 +4,7 @@ const fundAction = createAction('fundAction');
 const collateralAction = createAction('collateralAction');
 const partialSellAction = createAction('partialSellAction');
 const completedSellAction = createAction('completedSellAction');
+const portfolioHealthAction = createAction('portfolioHealthAction');
 
 const portfolioDetail = createReducer(
     {
@@ -11,6 +12,7 @@ const portfolioDetail = createReducer(
         collateral:[],
         partialSell:[],
         completedSell:[],
+        portfolioHealth:[],
     },(builder)=>{
         builder
             .addCase(fundAction,(state,action)=>{
@@ -24,6 +26,9 @@ const portfolioDetail = createReducer(
             })
             .addCase(completedSellAction,(state,action)=>{
                state.completedSell=action.payload
+            })
+            .addCase(portfolioHealthAction,(state,action)=>{
+               state.portfolioHealth=action.payload
             })
     })
 

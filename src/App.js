@@ -25,7 +25,7 @@ function App() {
 
 function AuthenticatedRoutes() {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={1}>
         <Grid item xs={3} md={2}>        
           <NavBar />
         </Grid>
@@ -40,8 +40,8 @@ function AuthenticatedRoutes() {
               <Route path="/settings" element={<></>} />
               <Route path="/genratereport" element={<></>} />
               <Route path="/uploadexcel" element={<></>} />
-              <Route path="/dashboard/:id" element={<FundDeposited />} />
-              <Route path="/dashboardCustom/:id" element={<OtherCard />} />
+              <Route path="/portfolioHealth" element={<FundDeposited />} />
+              <Route path="/dashboard/:id" element={<OtherCard />} />
             </Routes>
           </Grid>
         </Grid>

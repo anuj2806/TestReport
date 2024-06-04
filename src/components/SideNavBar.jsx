@@ -3,50 +3,84 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import avatar from '../assests/avtar.png'
 import customer from '../assests/sidebaricon/customer.png'
-import dash from '../assests/sidebaricon/dash.png'
-import file from '../assests/sidebaricon/file.png'
-import setting from '../assests/sidebaricon/setting.png'
-import upload from '../assests/upload.png'
-
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import ListTwoToneIcon from '@mui/icons-material/ListTwoTone';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import HomeIcon from '@mui/icons-material/Home';
 const NavBar = () => {
+    const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
   return (
-    <nav>
+    <nav >
         <div className="userdetail">
             <img src={avatar} alt="avtar" width={'100px'} height={'100px'}/>
             <label htmlFor="username" id='username' >Neha Sharma</label>
             <p className="role">Manager</p>
         </div>
         <div className="navbuttons">
-            <Link to={'/dashboard'}  style={{ textDecoration: 'none' }}>
-            <button className="navbutton">
-                <img src={dash} alt="dashboard" width={'20px'}/>
-                <label htmlFor="">Dashboard</label>
-            </button>
+            <Link to={'/dashboard'}  style={{ textDecoration: 'none',color:'black' }}>
+                    <ListItemButton
+                        selected={selectedIndex === 0}
+                        onClick={(event) => handleListItemClick(event, 0)}
+                        >
+                        <ListItemIcon>
+                            <DashboardOutlinedIcon sx={selectedIndex===0?{color:'white' }:''}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Dashboard"  sx={{marginLeft:'-20px'}}/>
+                    </ListItemButton>
             </Link>
-            <Link to={'/customer'} style={{ textDecoration: 'none' }}>
-            <button className="navbutton">
-                <img src={customer} alt="customer" width={'20px'}/>
-                <label htmlFor="">Customer</label>
-            </button>
+            <Link to={'/customer'} style={{ textDecoration: 'none',color:'black' }}>
+            <ListItemButton
+                        selected={selectedIndex === 1}
+                        onClick={(event) => handleListItemClick(event, 1)}
+                        >
+                        <ListItemIcon>
+                            <ListTwoToneIcon sx={selectedIndex===1?{color:'white' }:''}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Customers" sx={{marginLeft:'-20px'}}/>
+                    </ListItemButton>
             </Link>
             
-            <Link to={'/settings'} style={{ textDecoration: 'none' }}>
-            <button className="navbutton">
-                    <img src={setting} alt="setting" width={'20px'}/>
-                    <label htmlFor="">Settings</label>
-                </button>
+            <Link to={'/settings'} style={{ textDecoration: 'none',color:'black' }}>
+            <ListItemButton
+                        selected={selectedIndex === 2}
+                        onClick={(event) => handleListItemClick(event, 2)}
+                        >
+                        <ListItemIcon>
+                            <SettingsOutlinedIcon sx={selectedIndex===2?{color:'white' }:''}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Settings" sx={{marginLeft:'-20px'}}/>
+                    </ListItemButton>
             </Link>
-            <Link to={'/genratereport'} style={{ textDecoration: 'none' }}>
-            <button className="navbutton">
-                <img src={file} alt="file" width={'20px'}/>
-                <label htmlFor="">Genrate Report</label>
-            </button>
+            <Link to={'/genratereport'} style={{ textDecoration: 'none',color:'black' }}>
+            <ListItemButton
+                        selected={selectedIndex === 3}
+                        onClick={(event) => handleListItemClick(event, 3)}
+                        >
+                        <ListItemIcon>
+                            <DescriptionOutlinedIcon sx={selectedIndex===3?{color:'white' }:''}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Generate Report" sx={{marginLeft:'-20px'}}/>
+                    </ListItemButton>
             </Link>
-            <Link to={'/uploadexcel'} style={{ textDecoration: 'none' }}>
-            <button className="navbutton">
-                <img src={upload} alt="upload" width={'20px'} />
-                <label htmlFor="">Upload Excel</label>
-            </button>
+            <Link to={'/uploadexcel'} style={{ textDecoration: 'none',color:'black' }} >
+                    <ListItemButton
+                        selected={selectedIndex === 4}
+                        onClick={(event) => handleListItemClick(event, 4)}
+                        >
+                        <ListItemIcon>
+                            <FileUploadOutlinedIcon sx={selectedIndex===4?{color:'white' }:''}/>
+                        </ListItemIcon>
+                        <ListItemText primary="Upload Excel" sx={{marginLeft:'-20px'}}/>
+                    </ListItemButton>
             </Link>
         </div>
     </nav>

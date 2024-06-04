@@ -25,11 +25,13 @@
     height: 40px;
     display: flex;
     justify-content: center;
-    background-color: brown;
     border-radius: 50%;
+    
   }
   .numberCircle p{
   margin-top: 10px;
+  font-weight: 500;
+  color: white;
   }
   
   .custom-file-upload {

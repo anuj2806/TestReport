@@ -15,7 +15,7 @@ import i3 from '../assests/profiles/i3.png'
 import TotalCasesChart from './TotalCasesChart'
 import PortfolioChart from './PortfolioChart'
 import ChannelsChart from './ChannelsChart'
-
+import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import userAvtar from '../assests/profile.png'
 import upload from '../assests/upload.png'
 import filter from '../assests/filter.png'
@@ -29,7 +29,7 @@ const Dashboard = () => {
     // const [partialSeldata,setpartialSeldata] = useState([]);
     // const [completedSelldata,setcompletedSelldata] = useState([]);
     const dispatch = useDispatch();
-    const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata) =>{
+    const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata) =>{
         dispatch({
           type:'fundAction',
           payload:funddata, 
@@ -45,6 +45,10 @@ const Dashboard = () => {
         dispatch({
           type:'completedSellAction',
           payload:completedSelldata, 
+        })
+        dispatch({
+          type:'portfolioHealthAction',
+          payload:portfolioHealthdata, 
         })
     }
     useEffect(()=>{
@@ -82,8 +86,16 @@ const Dashboard = () => {
             }catch(error){
                 console.log(error)
             }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=MARGIN_BREACHED');
+            console.log(data);
+            var data5 = data;
+            data5.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
             
-            dispatchAction(data1,data2,data3,data4);
+            dispatchAction(data1,data2,data3,data4,data5);
         }
         fetchData();
 
@@ -119,54 +131,54 @@ const Dashboard = () => {
                         <Stack >
                             <Stack direction={'row'} gap={2}>
                                 <img src={one} alt="" width={'40px'} height={'40px'}/>
-                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'} >Fund Deposited</Typography>
+                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'} color={'primary'}>Fund Deposited</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5" align='center'>9</Typography>
+                                <Typography variant="h5" component="h5" align='center' fontFamily={'Inter'} fontWeight={'700'}>9</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
                 </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
-            <Link to={'/dashboardCustom/collateral'} style={{ textDecoration: 'none' }}>
+            <Link to={'/dashboard/collateral'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent >
                         <Stack >
                             <Stack direction={'row'}  gap={2}>
                                 <img src={two} alt="" width={'40px'} height={'40px'}/>
-                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Additional Collateral</Typography>
+                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}  color={'primary'}>Additional Collateral</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5" align='center'>12</Typography>
+                                <Typography variant="h5" component="h5" align='center' fontFamily={'Inter'} fontWeight={'700'}>12</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
             </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
-            <Link to={'/dashboardCustom/partialSell'} style={{ textDecoration: 'none' }}>
+            <Link to={'/dashboard/partialSell'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent>
                         <Stack >
                             <Stack direction={'row'} gap={2}>
                                 <img src={three} alt="" width={'40px'} height={'40px'}/>
-                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Partial Sell</Typography>
+                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}  color={'primary'}>Partial Sell</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5"  align='center'>5</Typography>
+                                <Typography variant="h5" component="h5"  align='center' fontFamily={'Inter'} fontWeight={'700'}>5</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
             </Link>
             </Grid>
             <Grid item xs={6} md={3} className='datatiles'>
-            <Link to={'/dashboardCustom/completedSell'} style={{ textDecoration: 'none' }}>
+            <Link to={'/dashboard/completedSell'} style={{ textDecoration: 'none' }}>
                 <Card variant="outlined" style={{backgroundColor:'#F1F5FE'}}>
                     <CardContent>
                         <Stack >
                             <Stack direction={'row'} gap={2}>
                                 <img src={four} alt="" width={'40px'} height={'40px'}/>
-                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Completed Sell</Typography>
+                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}  color={'primary'}>Completed Sell</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5" align='center' >4</Typography>
+                                <Typography variant="h5" component="h5" align='center'  fontFamily={'Inter'} fontWeight={'700'}>4</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
@@ -180,11 +192,13 @@ const Dashboard = () => {
                 </Card>
             </Grid>
             <Grid item xs={12} md={6} >
+            <Link to={'/portfolioHealth'} style={{ textDecoration: 'none' }}>
                 <Card >
                     <CardContent>
                         <PortfolioChart />
                     </CardContent>
                 </Card>
+            </Link>
             </Grid>
             <Grid item xs={12} md={6}>
                 <Card >
@@ -199,7 +213,7 @@ const Dashboard = () => {
                         <Card >
                             <CardContent>
                                 <Stack direction={'column'}>
-                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'500'}>Customer 360</Typography>
+                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'500'} color={'#FF5151'}>Customer 360</Typography>
                                     <Stack direction={'row'} justifyContent={'space-between'}>
                                         <img src={userAvtar} alt="avtar" width={50} height={50}/>
                                         <button  style={{backgroundColor:'#fd7e14',color:'white',border:'none',height:'40px',borderRadius:'5px',width:'70%',marginTop:'5px',fontFamily:'Inter',fontWeight:'600'}} >Search Customer</button>
@@ -214,16 +228,16 @@ const Dashboard = () => {
                                     <Card >
                                         <CardContent style={{backgroundColor:'#FFD8D4'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'} mt={-1}>
-                                                <div className='numberCircle'><p>2</p></div>
-                                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'600'}>Second Notice</Typography>
+                                                <div className='numberCircle' style={{background:'#FF5151'}}><p >2</p></div>
+                                                <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'400'} color={'#FF5151'}>Second Notice</Typography>
                                             </Stack>
                                         </CardContent>
                                     </Card>
                                     <Card >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'}  mt={-1}>
-                                            <div className='numberCircle'><p>1</p></div>
-                                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'600'}>First Notice</Typography>
+                                            <div className='numberCircle' style={{background:'blue'}}><p>1</p></div>
+                                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'400'} color={'#4B7BEC'}>First Notice</Typography>
                                             </Stack>
                                         </CardContent>
                                     </Card>
@@ -250,6 +264,7 @@ const Dashboard = () => {
                                                 <Avatar alt="Agnes Walker" src={p4} />
                                                 <Avatar alt="Trevor Henderson" src={p5} />
                                                 </AvatarGroup>
+                                                <MoreVertOutlinedIcon style={{marginTop:'10px'}}/>
                                             </Stack>
                                         </CardContent>
                                     </Card>
@@ -267,8 +282,9 @@ const Dashboard = () => {
                                                 <Avatar alt="Travis Howard" src={p2} />
                                                 <Avatar alt="Cindy Baker" src={p3} />
                                                 <Avatar alt="Agnes Walker" src={p4} />
-                                                <Avatar alt="Trevor Henderson" src={p5} />
+                            
                                                 </AvatarGroup>
+                                                <MoreVertOutlinedIcon style={{marginTop:'10px'}}/>
                                             </Stack>
                                         </CardContent>
                                     </Card>
@@ -286,8 +302,9 @@ const Dashboard = () => {
                                                 <Avatar alt="Travis Howard" src={p2} />
                                                 <Avatar alt="Cindy Baker" src={p3} />
                                                 <Avatar alt="Agnes Walker" src={p4} />
-                                                <Avatar alt="Trevor Henderson" src={p5} />
+                                                <Avatar alt="Trevor Henderson" src='' />
                                                 </AvatarGroup>
+                                                <MoreVertOutlinedIcon style={{marginTop:'10px'}}/>
                                             </Stack>
                                         </CardContent>
                                     </Card>

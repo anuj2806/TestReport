@@ -36,7 +36,7 @@ const TotalCasesChart = () => {
 
   return (
     <>
-    <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Portfolio Health</h3>
+    <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Total Cases by Branch</h3>
     <div style={{height: 200}}>
         <div style={{position:'relative'}}>
             <div style={{ width:'80%', height: 200 }}>
@@ -47,7 +47,7 @@ const TotalCasesChart = () => {
                     dataKey="value"
                     data={data}
                     isAnimationActive
-                    width={400} 
+                    width={300} 
                 >
                     <LabelList position="centre" fill="#000" stroke="none" dataKey="value"/>
                 </Funnel>
