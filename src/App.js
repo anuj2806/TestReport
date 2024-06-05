@@ -11,6 +11,7 @@ import SearchBar from './components/SearchBar';
 import Login from './components/LogIn';
 import { Grid } from '@mui/material';
 import CustomerDetails from './components/CustomerDetails';
+import CustomerHeader from './components/CustomerHeader'
 
 function App() {
   return (
@@ -36,7 +37,8 @@ function AuthenticatedRoutes() {
           <Grid item xs={12} md={12}> 
             <Routes >
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/customer" element={<CustomerDetails />} />
+              
+              <Route path="/customer" element={<CustomerPage />} />
               <Route path="/settings" element={<></>} />
               <Route path="/genratereport" element={<></>} />
               <Route path="/uploadexcel" element={<></>} />
@@ -46,6 +48,15 @@ function AuthenticatedRoutes() {
           </Grid>
         </Grid>
     </Grid>
+  );
+}
+
+function CustomerPage() {
+  return (
+    <>
+      <CustomerHeader />
+      <CustomerDetails />
+    </>
   );
 }
 
