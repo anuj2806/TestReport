@@ -61,15 +61,15 @@ export default function SellShares() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>S.No</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>ISIN Number</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Company</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Current Share Value(NAV)</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Total Shares</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>NAV</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Total</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>No. of shares to be sold</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Sell Value</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>S.No</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>ISIN Number</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Company</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Current Share Value(NAV)</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Total Shares</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>NAV</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Total</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>No. of shares to be sold</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Sell Value</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
