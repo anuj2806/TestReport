@@ -1,33 +1,75 @@
 import * as React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box, Typography, Button } from '@mui/material';
+import {
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box, Typography, Button, TextField, Dialog, DialogContent, DialogTitle
+} from '@mui/material';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 function createData(sno, isin, company, currentValue, totalShares, nav, total, numToSell, sellValue) {
-  return { sno, isin, company, currentValue, totalShares, nav, total, numToSell, sellValue };
+  return { id: sno, sno, isin, company, currentValue, totalShares, nav, total, numToSell, sellValue };
 }
 
-const rows = [
-  createData(1, 'INE002A01018', 'Reliance Ltd', 70, 510, 35700, 35700, '', ''),
-  createData(2, 'INE081A01012', 'TCS', 5, 1010, 5050, 5050, '', ''),
-  createData(3, 'INE152A01029', 'Infosys', 5, 4139, 20695, 20695, '', ''),
-  createData(4, 'INE112A01023', 'Kotak Mahindra', 10, 2760, 27600, 27600, '', ''),
+const initialRows = [
+  createData(1, 'INE002A01018', 'Reliance Ltd', 70, 510, 35700, 35700, 0, 0),
+  createData(2, 'INE081A01012', 'TCS', 5, 1010, 5050, 5050, 0, 0),
+  createData(3, 'INE152A01029', 'Infosys', 5, 4139, 20695, 20695, 0, 0),
+  createData(4, 'INE112A01023', 'Kotak Mahindra', 10, 2760, 27600, 27600, 0, 0),
 ];
 
 export default function SellShares() {
+  const [rows, setRows] = React.useState(initialRows);
+  const [totalSellValue, setTotalSellValue] = React.useState(0);
+  const [additionalCollateral, setAdditionalCollateral] = React.useState(0);
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+
+  const handleNumToSellChange = (id, value) => {
+    setRows((prevRows) =>
+      prevRows.map((row) => {
+        if (row.id === id) {
+          const numToSell = Math.min(value, row.totalShares);
+          const sellValue = numToSell * row.currentValue;
+          return { ...row, numToSell, sellValue };
+        }
+        return row;
+      })
+    );
+  };
+
+  React.useEffect(() => {
+    const newTotalSellValue = rows.reduce((acc, row) => acc + row.sellValue, 0);
+    setTotalSellValue(newTotalSellValue);
+  }, [rows]);
+
+  React.useEffect(() => {
+    const totalPortfolioValue = rows.reduce((acc, row) => acc + row.total, 0);
+    const additionalCollateralRequired = totalPortfolioValue - totalSellValue;
+    setAdditionalCollateral(additionalCollateralRequired);
+  }, [rows, totalSellValue]);
+
+  const totalPortfolioValue = rows.reduce((acc, row) => acc + row.total, 0);
+
+  const handleSellClick = () => {
+    setDialogOpen(true);
+  };
+
+  const handleClose = () => {
+    setDialogOpen(false);
+  };
+
   return (
     <Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>S.No</TableCell>
-              <TableCell>ISIN Number</TableCell>
-              <TableCell>Company</TableCell>
-              <TableCell>Current Share Value(NAV)</TableCell>
-              <TableCell>Total Shares</TableCell>
-              <TableCell>NAV</TableCell>
-              <TableCell>Total</TableCell>
-              <TableCell>No. of shares to be sold</TableCell>
-              <TableCell>Sell Value</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>S.No</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>ISIN Number</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Company</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Current Share Value(NAV)</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Total Shares</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>NAV</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Total</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>No. of shares to be sold</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC' }}>Sell Value</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -40,36 +82,53 @@ export default function SellShares() {
                 <TableCell>{row.totalShares}</TableCell>
                 <TableCell>{row.nav}</TableCell>
                 <TableCell>{row.total}</TableCell>
-                <TableCell>{row.numToSell}</TableCell>
+                <TableCell>
+                  <TextField
+                    type="number"
+                    value={row.numToSell}
+                    onChange={(e) => handleNumToSellChange(row.id, parseInt(e.target.value))}
+                    inputProps={{ min: 0, max: row.totalShares }}
+                    sx={{ width: '60px' }} // Adjust the width as needed
+                  />
+                </TableCell>
                 <TableCell>{row.sellValue}</TableCell>
               </TableRow>
             ))}
             <TableRow>
-              <TableCell colSpan={7} align="right">Portfolio Value</TableCell>
-              <TableCell>89045</TableCell>
+              <TableCell colSpan={2} />
+              <TableCell align="right" colSpan={2}>Portfolio Value:</TableCell>
+              <TableCell colSpan={1} align="left">INR {totalPortfolioValue} </TableCell>
+
+              <TableCell align="center" colSpan={2}>Total Sell Value:</TableCell>
+              <TableCell colSpan={1} align="left">INR {totalSellValue} </TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
-      <Box sx={{ mt: 2, p: 2, border: '1px solid #ccc', borderRadius: 1, textAlign: 'center', backgroundColor: 'blue', color: 'white'}}>
-  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-    <Typography variant="h6" >Additional Collateral required</Typography>
-    <Typography variant="h8" color="white" sx={{ paddingTop: '18px', marginRight: '95px' }}>INR 10,000</Typography>
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-    <Typography variant="h6">Total Share Value:</Typography>
-    <Typography variant="h8" color="white" sx={{ paddingTop: '18px', marginRight: '95px' }}>INR 1,000</Typography>
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-    <Typography variant="h6">Penalty:</Typography>
-    <Typography variant="h8" color="white"></Typography>
-  </div>
-</Box>
-<Box sx={{ textAlign: 'center' }}>
-  <Button variant="contained" color="error" sx={{ mt: 2 }}>SELL</Button>
-</Box>
+      <Box sx={{ mt: 2, p: 1, border: '1px solid #ccc', borderRadius: 1, textAlign: 'center', backgroundColor: 'blue', color: 'white' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="h6" sx={{ fontSize: '14px' }}>Additional Collateral required</Typography>
+          <Typography variant="h8" color="white" sx={{ paddingTop: '8px', marginRight: '95px' }}>INR 10,000</Typography>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="h6" sx={{ fontSize: '14px' }}>Total Sell Value:</Typography>
+          <Typography variant="h8" color="white" sx={{ paddingTop: '8px', marginRight: '95px' }}>INR {totalSellValue}</Typography>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="h6" sx={{ fontSize: '14px' }}>Penalty:</Typography>
+          <Typography variant="h8" color="white"></Typography>
+        </div>
+      </Box>
+      <Box sx={{ textAlign: 'center' }}>
+        <Button variant="contained" color="error" sx={{ mt: 2 }} onClick={handleSellClick}>SELL</Button>
+      </Box>
 
-{/* pp */}
+      <Dialog open={dialogOpen} onClose={handleClose}>
+        <DialogContent sx={{ textAlign: 'center' }}>
+          <CheckCircleOutlineIcon sx={{ fontSize: 40, color: 'blue' }} />
+          <Typography variant="h6">Order has been placed.</Typography>
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 }
