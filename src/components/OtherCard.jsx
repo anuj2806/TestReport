@@ -19,7 +19,7 @@ import {useSelector} from 'react-redux'
 const OtherCard = () => {
     const [data,setData]=useState([]);
     const [cardLabel,setCardLabel]=useState();
-    const {fund,collateral,partialSell,completedSell} = useSelector((state)=>state.portfolioSummary);
+    const {fund,collateral,partialSell,completedSell,firstNotice,secondNotice,marginUnderReview} = useSelector((state)=>state.portfolioSummary);
     const params =useParams();
     useEffect(() => {
         if (params.id==='fundDeposited'){
@@ -34,6 +34,15 @@ const OtherCard = () => {
         } else if (params.id === 'completedSell') {
           setData(completedSell);
           setCardLabel('Completed Sell')
+        }else if (params.id === 'firstNotice') {
+          setData(firstNotice);
+          setCardLabel('First Notice')
+        }else if (params.id === 'secondNotice') {
+          setData(secondNotice);
+          setCardLabel('Second Notice')
+        }else if (params.id === 'marginUnderReview') {
+            setData(marginUnderReview);
+            setCardLabel('Margin Under Review')
         }
       }, [params.id]);
     return (

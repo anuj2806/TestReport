@@ -5,6 +5,9 @@ const collateralAction = createAction('collateralAction');
 const partialSellAction = createAction('partialSellAction');
 const completedSellAction = createAction('completedSellAction');
 const portfolioHealthAction = createAction('portfolioHealthAction');
+const firstNotice = createAction('firstNotice');
+const secondNotice = createAction('secondNotice');
+const marginUnderReview = createAction('marginUnderReview');
 
 const portfolioDetail = createReducer(
     {
@@ -13,6 +16,9 @@ const portfolioDetail = createReducer(
         partialSell:[],
         completedSell:[],
         portfolioHealth:[],
+        firstNotice:[],
+        secondNotice:[],
+        marginUnderReview:[],
     },(builder)=>{
         builder
             .addCase(fundAction,(state,action)=>{
@@ -29,6 +35,15 @@ const portfolioDetail = createReducer(
             })
             .addCase(portfolioHealthAction,(state,action)=>{
                state.portfolioHealth=action.payload
+            })
+            .addCase(firstNotice,(state,action)=>{
+               state.firstNotice=action.payload
+            })
+            .addCase(secondNotice,(state,action)=>{
+               state.secondNotice=action.payload
+            })
+            .addCase(marginUnderReview,(state,action)=>{
+               state.marginUnderReview=action.payload
             })
     })
 

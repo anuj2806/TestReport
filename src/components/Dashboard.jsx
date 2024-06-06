@@ -29,7 +29,7 @@ const Dashboard = () => {
     // const [partialSeldata,setpartialSeldata] = useState([]);
     // const [completedSelldata,setcompletedSelldata] = useState([]);
     const dispatch = useDispatch();
-    const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata) =>{
+    const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata,firstNotice,secondNotice,marginUnderReview) =>{
         dispatch({
           type:'fundAction',
           payload:funddata, 
@@ -49,6 +49,18 @@ const Dashboard = () => {
         dispatch({
           type:'portfolioHealthAction',
           payload:portfolioHealthdata, 
+        })
+        dispatch({
+          type:'firstNotice',
+          payload:firstNotice, 
+        })
+        dispatch({
+          type:'secondNotice',
+          payload:secondNotice, 
+        })
+        dispatch({
+          type:'marginUnderReview',
+          payload:marginUnderReview, 
         })
     }
     useEffect(()=>{
@@ -94,8 +106,32 @@ const Dashboard = () => {
             }catch(error){
                 console.log(error)
             }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=FIRST_NOTICE_INITIATED');
+            console.log(data);
+            var data6 = data;
+            data6.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=SECOND_NOTICE_INITIATED');
+            console.log(data);
+            var data7 = data;
+            data7.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=MARGIN_UDER_REVIEW');
+            console.log(data);
+            var data8 = data;
+            data8.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
             
-            dispatchAction(data1,data2,data3,data4,data5);
+            dispatchAction(data1,data2,data3,data4,data5,data6,data7,data8);
         }
         fetchData();
 
@@ -225,6 +261,7 @@ const Dashboard = () => {
                     <Grid item xs={6} >
                         <div>
                                 <Stack direction={'column'} gap={1} height={'130px'}>
+                                <Link to={'/dashboard/secondNotice'} style={{ textDecoration: 'none' }}>
                                     <Card >
                                         <CardContent style={{backgroundColor:'#FFD8D4'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'} mt={-1}>
@@ -233,6 +270,8 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                </Link>
+                                <Link to={'/dashboard/firstNotice'} style={{ textDecoration: 'none' }}>
                                     <Card >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'}  mt={-1}>
@@ -241,6 +280,7 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                </Link>
                                 </Stack>
                         </div>
                     </Grid>
@@ -250,6 +290,7 @@ const Dashboard = () => {
                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'} >Highlighted Profiles</Typography>
                             <Grid container xs={12} spacing={1}>
                                 <Grid item xs={12}>
+                                <Link to={'/dashboard/secondNotice'} style={{ textDecoration: 'none' }}>
                                     <Card  >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
@@ -268,8 +309,10 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                </Link>
                                 </Grid>
                                 <Grid item xs={12}>
+                                <Link to={'/dashboard/firstNotice'} style={{ textDecoration: 'none' }}>
                                     <Card  >
                                         <CardContent style={{backgroundColor:'#FFD8D4'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
@@ -288,8 +331,10 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                    </Link>
                                 </Grid>
                                 <Grid item xs={12}>
+                                    <Link to={'/dashboard/marginUnderReview'} style={{ textDecoration: 'none' }}>
                                     <Card  >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
@@ -308,6 +353,7 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                    </Link>
                                 </Grid>
                             </Grid>
                             </CardContent>
