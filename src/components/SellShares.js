@@ -108,15 +108,15 @@ export default function SellShares() {
       <Box sx={{ mt: 2, p: 1, border: '1px solid #ccc', borderRadius: 1, textAlign: 'center', backgroundColor: 'blue', color: 'white' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="h6" sx={{ fontSize: '14px' }}>Additional Collateral required</Typography>
-          <Typography variant="h8" color="white" sx={{ paddingTop: '8px', marginRight: '95px' }}>INR 10,000</Typography>
+          <Typography variant="h8" color="white" sx={{ paddingTop: '15px', marginRight: '246px' }}>INR 10,000</Typography>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="h6" sx={{ fontSize: '14px' }}>Total Sell Value:</Typography>
-          <Typography variant="h8" color="white" sx={{ paddingTop: '8px', marginRight: '95px' }}>INR {totalSellValue}</Typography>
+          <Typography variant="h8" color="white" sx={{ paddingTop: '15px', marginRight: '246px' }}>INR {totalSellValue}</Typography>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="h6" sx={{ fontSize: '14px' }}>Penalty:</Typography>
-          <Typography variant="h8" color="white"></Typography>
+          <Typography variant="h8" color="white" sx={{ paddingTop: '15px', marginRight: '246px' }}>INR 1,000</Typography>
         </div>
       </Box>
       <Box sx={{ textAlign: 'center' }}>

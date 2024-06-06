@@ -11,7 +11,8 @@ import SearchBar from './components/SearchBar';
 import Login from './components/LogIn';
 import { Grid } from '@mui/material';
 import CustomerDetails from './components/CustomerDetails';
-import CustomerHeader from './components/CustomerHeader'
+import CustomerHeader from './components/CustomerHeader';
+import GenerateReport from './components/GenerateReport';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/*" element={<AuthenticatedRoutes />} />
+        
       </Routes>
     </Router>
   );
@@ -40,10 +42,11 @@ function AuthenticatedRoutes() {
               
               <Route path="/customer" element={<CustomerPage />} />
               <Route path="/settings" element={<></>} />
-              <Route path="/genratereport" element={<></>} />
+              <Route path="/genratereport" element={<GenerateReport/>} />
               <Route path="/uploadexcel" element={<></>} />
               <Route path="/portfolioHealth" element={<FundDeposited />} />
               <Route path="/dashboard/:id" element={<OtherCard />} />
+              
             </Routes>
           </Grid>
         </Grid>
