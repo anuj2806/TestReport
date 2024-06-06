@@ -34,6 +34,12 @@ const OtherCard = () => {
         } else if (params.id === 'completedSell') {
           setData(completedSell);
           setCardLabel('Completed Sell')
+        }else if (params.id === 'completedSell') {
+          setData(completedSell);
+          setCardLabel('Completed Sell')
+        }else if (params.id === 'completedSell') {
+          setData(completedSell);
+          setCardLabel('Completed Sell')
         }
       }, [params.id]);
     return (

@@ -225,6 +225,7 @@ const Dashboard = () => {
                     <Grid item xs={6} >
                         <div>
                                 <Stack direction={'column'} gap={1} height={'130px'}>
+                                <Link to={'/dashboard/secondNotice'} style={{ textDecoration: 'none' }}>
                                     <Card >
                                         <CardContent style={{backgroundColor:'#FFD8D4'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'} mt={-1}>
@@ -233,6 +234,8 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                </Link>
+                                <Link to={'/dashboard/firstNotice'} style={{ textDecoration: 'none' }}>
                                     <Card >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} gap={2} alignItems={'center'}  mt={-1}>
@@ -241,6 +244,7 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                </Link>
                                 </Stack>
                         </div>
                     </Grid>
@@ -250,6 +254,7 @@ const Dashboard = () => {
                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'} >Highlighted Profiles</Typography>
                             <Grid container xs={12} spacing={1}>
                                 <Grid item xs={12}>
+                                <Link to={'/dashboard/secondNotice'} style={{ textDecoration: 'none' }}>
                                     <Card  >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
@@ -268,8 +273,10 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                </Link>
                                 </Grid>
                                 <Grid item xs={12}>
+                                <Link to={'/dashboard/firstNotice'} style={{ textDecoration: 'none' }}>
                                     <Card  >
                                         <CardContent style={{backgroundColor:'#FFD8D4'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
@@ -288,8 +295,10 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                    </Link>
                                 </Grid>
                                 <Grid item xs={12}>
+                                    <Link to={'/dashboard/marginUnderReview'} style={{ textDecoration: 'none' }}>
                                     <Card  >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
@@ -308,6 +317,7 @@ const Dashboard = () => {
                                             </Stack>
                                         </CardContent>
                                     </Card>
+                                    </Link>
                                 </Grid>
                             </Grid>
                             </CardContent>
