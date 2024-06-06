@@ -29,7 +29,7 @@ const Dashboard = () => {
     // const [partialSeldata,setpartialSeldata] = useState([]);
     // const [completedSelldata,setcompletedSelldata] = useState([]);
     const dispatch = useDispatch();
-    const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata) =>{
+    const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata,firstNotice,secondNotice,marginUnderReview) =>{
         dispatch({
           type:'fundAction',
           payload:funddata, 
@@ -49,6 +49,18 @@ const Dashboard = () => {
         dispatch({
           type:'portfolioHealthAction',
           payload:portfolioHealthdata, 
+        })
+        dispatch({
+          type:'firstNotice',
+          payload:firstNotice, 
+        })
+        dispatch({
+          type:'secondNotice',
+          payload:secondNotice, 
+        })
+        dispatch({
+          type:'marginUnderReview',
+          payload:marginUnderReview, 
         })
     }
     useEffect(()=>{
@@ -94,8 +106,32 @@ const Dashboard = () => {
             }catch(error){
                 console.log(error)
             }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=FIRST_NOTICE_INITIATED');
+            console.log(data);
+            var data6 = data;
+            data6.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=SECOND_NOTICE_INITIATED');
+            console.log(data);
+            var data7 = data;
+            data7.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
+            try{
+            const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=MARGIN_UDER_REVIEW');
+            console.log(data);
+            var data8 = data;
+            data8.map((e,i)=>e["id"]=i+1);
+            }catch(error){
+                console.log(error)
+            }
             
-            dispatchAction(data1,data2,data3,data4,data5);
+            dispatchAction(data1,data2,data3,data4,data5,data6,data7,data8);
         }
         fetchData();
 
