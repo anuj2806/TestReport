@@ -35,13 +35,13 @@ const FundDeposited = () => {
         selectedRow.forEach((value,index)=>{
             const customerName = data[value].customerName;
             const totalPledgeValue =  data[value].totalPledgeValue;
-            const sanctionAmount =  data[value].sanctionAmount;
+            const marginAvailable =  data[value].marginAvailable;
         let mailSubject = 'Immediate Action Required: Margin Breach Notification';
         let mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We regret to inform you that your portfolio has experienced a margin breach below 25%. Below are the details of your current portfolio status:</p>
         <ul>
           <li>Total Pledge Value: ${totalPledgeValue}</li>
-          <li>Current Value: ${sanctionAmount}</li>
+          <li>Current Value: ${marginAvailable}</li>
           <li>Margin Breach Category: Below 25%</li>
         </ul>
         <p>Due to the severity of this breach, we are required to take immediate action to mitigate the risk. As a result, we will be selling a portion of your shares to cover the breached margin.</p>
