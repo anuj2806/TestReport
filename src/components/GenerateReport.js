@@ -47,12 +47,13 @@ export default function ExcelToDataGrid() {
   return (
     <Box sx={{ padding: 2 }}>
       <Box display="flex" alignItems="center" mb={2}>
+      <IconButton>
+          <ArrowForwardIcon />
+        </IconButton>
         <Typography variant="h4">
           Generate Report
         </Typography>
-        <IconButton>
-          <ArrowForwardIcon />
-        </IconButton>
+        
       </Box>
       <Button variant="contained" onClick={handleButtonClick} style={{ marginRight: '10px' }}>
         Upload Data

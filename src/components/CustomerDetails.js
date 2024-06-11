@@ -41,19 +41,19 @@ function CustomerDetails() {
           <Card>
             <CardContent>
             <div style={{
-  border: '1px solid #ccc', // Add a 1-pixel border
-  borderRadius: '0px', // Remove the circular border
-  width: '100px', // Set the width of the frame
-  height: '100px', // Set the height of the frame
-  overflow: 'hidden', // Ensure the image doesn't exceed the frame
-  display: 'inline-block', // Make it inline
-  margin: '5px', // Add some margin
+  border: '1px solid #ccc', 
+  borderRadius: '0px', 
+  width: '100px',
+  height: '100px', 
+  overflow: 'hidden', 
+  display: 'inline-block', 
+  margin: '5px', 
   marginLeft:'101px',
 }}>
   <img src={customer} alt="Nandini Singh" style={{
-    width: '100%', // Make the image fill the frame
-    height: '100%', // Make the image fill the frame
-    objectFit: 'cover', // Ensure the image is scaled to fit the frame
+    width: '100%', 
+    height: '100%', 
+    objectFit: 'cover', 
     marginLeft:'1px',
   }} />
 </div>

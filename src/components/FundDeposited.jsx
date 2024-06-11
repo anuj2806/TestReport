@@ -19,8 +19,9 @@ import BreachedChart from './BreachedChart';
 import FundTable from './FundTable';
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar';
-import {useSelector} from 'react-redux'
-import {useParams} from 'react-router-dom'
+import {useSelector} from 'react-redux';
+import {useParams} from 'react-router-dom';
+import MailingApi,{ sendEmail } from './MailingApi';
 
 const FundDeposited = () => {
     const [data,setData]=useState([]);
@@ -87,7 +88,7 @@ const FundDeposited = () => {
                         <Stack direction={'column'} alignItems={'center'}>
                             <Stack direction={'row'} gap={2}>
                             <AiOutlineAlert size={25} color="red"/>
-                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margin Below 46-50%</Typography>
+                            <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margin Below 41-50%</Typography>
                             </Stack>
                             <AvatarGroup max={4}>
                                 <Avatar alt="Travis Howard" src={p10} />
