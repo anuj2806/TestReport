@@ -18,10 +18,9 @@ const OtherCard = () => {
   const { fund, collateral, partialSell, completedSell, firstNotice, secondNotice, marginUnderReview } = useSelector((state) => state.portfolioSummary);
   const params = useParams();
 
-
-
   const updateRowSelectedData = (data)=>{
-    console.log(data)
+    console.log(data);
+    setSelectedRow(data);
   }
 
 
@@ -66,14 +65,19 @@ const OtherCard = () => {
     let mailSubject = '';
     let mailBody = '';
 
+    selectedRow.forEach((value,index)=>{
+      const customerName = data[value].customerName;
+      const totalPledgeValue =  data[value].totalPledgeValue;
     switch (params.id) {
+
+
       case 'fundDeposited':
         mailSubject = 'Confirmation: Funds Deposit Received';
         mailBody = `
-        <p>Dear [Customer's Name],</p>
+        <p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are pleased to inform you that we have received your funds deposit.</p>
         <ul>
-          <li>Total Pledge Value: [Total Pledge Value]</li>
+          <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Category: [Margin Category]</li>
           <li>Additional Funds Deposited – [Amount]</li>
@@ -83,10 +87,10 @@ const OtherCard = () => {
         break;
       case 'collateral':
         mailSubject = 'Confirmation: Additional Collateral Received';
-        mailBody = `<p>Dear [Customer's Name],</p>
+        mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are pleased to inform you that we have received your additional collateral. Your prompt response is appreciated, and your portfolio has been updated accordingly.</p>
         <ul>
-          <li>Total Pledge Value: [Total Pledge Value]</li>
+          <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: [Margin Breach Category]</li>
           <li>Additional Collateral Received – [Amount]</li>
@@ -97,10 +101,10 @@ const OtherCard = () => {
         break;
       case 'partialSell':
         mailSubject = 'Important Update: Partial Sale of Shares Due to Margin Breach';
-        mailBody = `<p>Dear [Customer's Name],</p>
+        mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We regret to inform you that, as we have not received the required additional collateral or funds within the specified timeframe, we have proceeded with selling a fraction of your shares to cover the breached margin.</p>
         <ul>
-          <li>Total Pledge Value:[Total Pledge Value]</li>
+          <li>Total Pledge Value:${totalPledgeValue}</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: 25-40%</li>
           <li>Amount to Sold: [Amount]</li>
@@ -112,10 +116,10 @@ const OtherCard = () => {
         break;
       case 'completedSell':
         mailSubject = 'Completed Sell to be done';
-        mailBody = `<p>Dear [Customer's Name],</p>
+        mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We regret to inform you that, as we have not received the required additional collateral or funds within the specified timeframe, we have been compelled to sell your entire portfolio to cover the breached margin.</p>
         <ul>
-          <li>Total Pledge Value: [Total Pledge Value]</li>
+          <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: Below 25%</li>
           <li>Amount Sold: [Amount]</li>
@@ -127,10 +131,10 @@ const OtherCard = () => {
         break;
       case 'firstNotice':
         mailSubject = 'Important Notice: Margin Call Breach';
-        mailBody = `<p>Dear [Customer's Name],</p>
+        mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We would like to bring to your attention a margin breach of 40-50% in your account. It is essential that you take immediate action to address this issue and maintain the stability of your portfolio.</p>
         <ul>
-          <li>Total Pledge Value: [Total Pledge Value]</li>
+          <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: 40-50%</li>
           <li>Amount Required: [Amount]</li>
@@ -142,10 +146,10 @@ const OtherCard = () => {
         break;
       case 'secondNotice':
         mailSubject = 'Urgent Notice: Immediate Action Required for Margin Call Breach';
-        mailBody = `<p>Dear [Customer's Name],</p>
+        mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. This is a follow-up notice regarding the margin breach of over 50% in your account. Immediate action is required to address this critical issue and prevent potential liquidation of your assets.</p>
         <ul>
-          <li>Total Pledge Value: [Total Pledge Value]</li>
+          <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: Over 50%</li>
           <li>Amount Required: [Amount]</li>
@@ -158,10 +162,10 @@ const OtherCard = () => {
         break;
       case 'marginUnderReview':
         mailSubject = 'Notice: Portfolio Under Review Due to Margin Breach';
-        mailBody = `<p>Dear [Customer's Name],</p>
+        mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are writing to inform you that your portfolio is currently under review due to a margin breach. Our team is closely monitoring the situation to ensure the stability of your account.</p>
         <ul>
-          <li>Total Pledge Value: [Total Pledge Value]</li>
+          <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: 35%</li>
           <li>Additional Funds/Collateral Required: [Amount]</li>
@@ -176,6 +180,7 @@ const OtherCard = () => {
     }
 
     sendEmail(mailSubject, mailBody);
+  })
   };
 
   return (
