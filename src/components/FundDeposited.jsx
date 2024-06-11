@@ -22,7 +22,57 @@ import SearchBar from './SearchBar';
 import {useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import MailingApi,{ sendEmail } from './MailingApi';
-
+const handleoneSendEmail = () => {
+    let mailSubject = 'Immediate Action Required: Margin Breach Notification';
+    let mailBody = `<p>Dear [Customer's Name],</p>
+    <p>We hope this message finds you well. We regret to inform you that your portfolio has experienced a margin breach below 25%. Below are the details of your current portfolio status:</p>
+    <ul>
+      <li>Total Pledge Value: [Total Pledge Value]</li>
+      <li>Current Value: [Current Value]</li>
+      <li>Margin Breach Category: Below 25%</li>
+    </ul>
+    <p>Due to the severity of this breach, we are required to take immediate action to mitigate the risk. As a result, we will be selling a portion of your shares to cover the breached margin.</p>
+    <p>We understand that this is an urgent matter and are here to support you through this process. If you have any questions or require further information, please feel free to reach us.</p>
+    <p>Thank you for your prompt attention.</p>
+    <p>Best regards,<br>Newgen</p>
+    `;
+    sendEmail(mailSubject, mailBody);
+  };
+  const handletwoSendEmail = () => {
+    let mailSubject = 'Urgent: Margin Breach Notification';
+    let mailBody = `<p>Dear [Customer's Name],</p>
+    <p>We hope this message finds you well. We are writing to inform you that your portfolio has experienced a margin breach in the 25-40% range. Below are the details of your current portfolio status:</p>
+    <ul>
+      <li>Total Pledge Value: [Total Pledge Value]</li>
+      <li>Current Value: [Current Value]</li>
+      <li>Margin Breach Category: 25-40%</li>
+      <li>Current Margin: [Current Margin]</li>
+    </ul>
+    <p>To address this breach and avoid potential liquidation of your assets, please submit additional collateral or deposit funds within the next 3 days.</p>
+    <p>Use the URL to submit additional collateral/funds: <a href="https://tytlmsdemo.newgensoftware.net//LASPortal">https://tytlmsdemo.newgensoftware.net//LASPortal</a></p>
+    <p>Taking prompt action is crucial to maintaining the integrity of your portfolio.</p>
+    <p>Thank you for your urgent attention to this matter.</p>
+    <p>Best regards,</p>
+    `;
+    sendEmail(mailSubject, mailBody);
+  };
+  const handlethreeSendEmail = () => {
+    let mailSubject = 'Immediate Attention Required: Margin Breach Notification';
+    let mailBody = `<p>Dear [Customer's Name],</p>
+    <p>We hope this message finds you well. We are writing to inform you that your portfolio has experienced a margin breach in the 40-50% range. Below are the details of your current portfolio status:</p>
+    <ul>
+      <li>Total Pledge Value: [Total Pledge Value]</li>
+      <li>Current Value: [Current Value]</li>
+      <li>Margin Breach Category: 40-50%</li>
+      <li>Current Margin: [Current Margin]</li>
+    </ul>
+    <p>In order to rectify this breach and avoid any potential liquidation of your assets, we kindly request that you submit additional collateral or deposit funds within the next 5 days. Use the URL to submit additional collateral/funds: <a href="https://tytlmsdemo.newgensoftware.net//LASPortal">https://tytlmsdemo.newgensoftware.net//LASPortal</a></p>
+    <p>Please take prompt action to ensure your portfolio remains compliant with our margin requirements. Should you have any questions or need assistance, feel free to contact our support team.</p>
+    <p>Thank you for your immediate attention to this matter.</p>
+    <p>Best regards,<br>Newgen</p>
+    `;
+    sendEmail(mailSubject, mailBody);
+  };
 const FundDeposited = () => {
     const [data,setData]=useState([]);
     const {portfolioHealth} = useSelector((state)=>state.portfolioSummary);
@@ -57,7 +107,7 @@ const FundDeposited = () => {
                                 <Avatar alt="Trevor Henderson" src={p5} />
                                 <Avatar alt="Trevor Henderson" src={p6} />
                                 </AvatarGroup>
-                            <CiMail size={40} color="blue"/>
+                            <CiMail size={40} color="blue" onClick={handleoneSendEmail} />
                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontSize={'12px'}>Send Email For Sell</Typography>
                         </Stack>
                     </CardContent>
@@ -76,7 +126,7 @@ const FundDeposited = () => {
                                 <Avatar alt="Cindy Baker" src={p8} />
                                 <Avatar alt="Agnes Walker" src={p9} />
                                 </AvatarGroup>
-                            <CiMail size={40} color="blue"/>
+                            <CiMail size={40} color="blue" onClick={handletwoSendEmail}  />
                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontSize={'12px'}>Send Email For 3 day Intimation</Typography>
                         </Stack>
                     </CardContent>
@@ -96,7 +146,7 @@ const FundDeposited = () => {
                                 <Avatar alt="Agnes Walker" src={p12} />
                                 <Avatar alt="Trevor Henderson" src={p3} />
                                 </AvatarGroup>
-                            <CiMail size={40} color="blue"/>
+                            <CiMail size={40} color="blue" onClick={handlethreeSendEmail} />
                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontSize={'12px'}>Send Email For 5 day Intimation</Typography>
                         </Stack>
                     </CardContent>

@@ -32,7 +32,8 @@ const OtherCard = () => {
         setCardLabel('Partial Sell');
         break;
       case 'completedSell':
-        setData(completedSell);
+      //  setData(completedSell);
+        setData(firstNotice);
         setCardLabel('Completed Sell');
         break;
       case 'firstNotice':
