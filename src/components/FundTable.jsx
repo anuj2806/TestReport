@@ -30,7 +30,7 @@ const columns = [
     },
 ];
 
-const FundTable = ({tabledata}) => {
+const FundTable = ({tabledata,updateRowSelectedData}) => {
     console.log(tabledata)
   return (
     <div style={{ height: 424, width: '100%' }}>
@@ -45,7 +45,7 @@ const FundTable = ({tabledata}) => {
         }}
         pageSizeOptions={[10, 20]}
         checkboxSelection
-        onRowSelectionModelChange={(rowSelectedModel,details)=>console.log(rowSelectedModel)}
+        onRowSelectionModelChange={(rowSelectedModel,details)=>updateRowSelectedData(rowSelectedModel)}
       />
     </div>
   );

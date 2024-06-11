@@ -14,8 +14,16 @@ import MailingApi,{ sendEmail } from './MailingApi';
 const OtherCard = () => {
   const [data, setData] = useState([]);
   const [cardLabel, setCardLabel] = useState('');
+  const [selectedRow, setSelectedRow] = useState([]);
   const { fund, collateral, partialSell, completedSell, firstNotice, secondNotice, marginUnderReview } = useSelector((state) => state.portfolioSummary);
   const params = useParams();
+
+
+
+  const updateRowSelectedData = (data)=>{
+    console.log(data)
+  }
+
 
   useEffect(() => {
     switch (params.id) {
@@ -51,6 +59,7 @@ const OtherCard = () => {
         break;
     }
   }, [params.id]);
+  
 
   const handleSendEmail = () => {
     let mailSubject = '';
@@ -205,7 +214,7 @@ const OtherCard = () => {
       <Grid item xs={12} md={12}>
         <Card>
           <CardContent>
-            <FundTable tabledata={data} />
+            <FundTable tabledata={data} updateRowSelectedData={updateRowSelectedData}/>
           </CardContent>
         </Card>
       </Grid>
