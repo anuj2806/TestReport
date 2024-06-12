@@ -11,6 +11,8 @@ import FundTable from './FundTable';
 import SearchBar from './SearchBar';
 import MailingApi,{ sendEmail } from './MailingApi';
 
+
+
 const OtherCard = () => {
   const [data, setData] = useState([]);
   const [cardLabel, setCardLabel] = useState('');
@@ -179,8 +181,9 @@ const OtherCard = () => {
       default:
         break;
     }
-
+    
     sendEmail(mailSubject, mailBody);
+    
   })
   };
 
@@ -218,6 +221,7 @@ const OtherCard = () => {
           </CardContent>
         </Card>
       </Grid>
+      
       <Grid item xs={12} md={12}>
         <Card>
           <CardContent>
@@ -235,3 +239,4 @@ const OtherCard = () => {
 };
 
 export default OtherCard;
+

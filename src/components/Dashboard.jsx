@@ -252,7 +252,7 @@ const Dashboard = () => {
                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'500'} color={'#FF5151'}>Customer 360</Typography>
                                     <Stack direction={'row'} justifyContent={'space-between'}>
                                         <img src={userAvtar} alt="avtar" width={50} height={50}/>
-                                        <button  style={{backgroundColor:'#fd7e14',color:'white',border:'none',height:'40px',borderRadius:'5px',width:'70%',marginTop:'5px',fontFamily:'Inter',fontWeight:'600'}} >Search Customer</button>
+                                       <button style={{backgroundColor:'#fd7e14', color:'white', border:'none', height:'40px', borderRadius:'5px', width:'70%', marginTop:'5px', fontFamily:'Inter', fontWeight:'600'}} onClick={() => window.open('https://hnbdemo.newgensoftware.net/LASMonitoring/#/customer')}>Search Customer</button>
                                     </Stack>
                                 </Stack>
                             </CardContent>
