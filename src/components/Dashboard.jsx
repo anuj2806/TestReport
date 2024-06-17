@@ -223,7 +223,7 @@ const Dashboard = () => {
             <Grid item xs={12} md={6}>
                 <Card  >
                     <CardContent >
-                        <TotalCasesChart/>
+                        <PortfolioChart />
                     </CardContent>
                 </Card>
             </Grid>
@@ -231,7 +231,7 @@ const Dashboard = () => {
             <Link to={'/portfolioHealth'} style={{ textDecoration: 'none' }}>
                 <Card >
                     <CardContent>
-                        <PortfolioChart />
+                        <TotalCasesChart/>
                     </CardContent>
                 </Card>
             </Link>
