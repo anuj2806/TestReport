@@ -44,7 +44,7 @@ const TotalCasesChart = ({barSize,handleClick}) => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Legend  layout="vertical" verticalAlign="top" align="right"  payload={ [{ value:'Punjabi Bagh' , type: 'circle', color:"#4285F4" },{ value:'Saket' , type: 'circle', color: "#5BC0DE"},{ value:'Green Park' , type: 'circle', color: "#FA8072"},{ value:'Pitampura' , type: 'circle', color: "#FFD700"},{ value:'Pitampura' , type: 'circle', color: "#98FB98"}]} />
+            <Legend  layout="vertical" verticalAlign="top" align="right"  payload={ [{ value:'Punjabi Bagh' , type: 'circle', color:"#4285F4" },{ value:'Saket' , type: 'circle', color: "#5BC0DE"},{ value:'Green Park' , type: 'circle', color: "#FA8072"},{ value:'Pitampura' , type: 'circle', color: "#FFD700"},{ value:'Noida' , type: 'circle', color: "#98FB98"}]} />
             <Bar dataKey="value" barSize={barSize}  activeBar={<Rectangle fill="blue" stroke="blue" />} onClick={handleClick} />
           </BarChart>
         </ResponsiveContainer>
