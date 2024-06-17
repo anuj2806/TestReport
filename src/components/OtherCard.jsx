@@ -221,7 +221,6 @@ const OtherCard = () => {
           </CardContent>
         </Card>
       </Grid>
-      <BasicAlerts/>
       <Grid item xs={12} md={12}>
         <Card>
           <CardContent>
