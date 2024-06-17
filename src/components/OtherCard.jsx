@@ -11,6 +11,8 @@ import FundTable from './FundTable';
 import SearchBar from './SearchBar';
 import MailingApi,{ sendEmail } from './MailingApi';
 
+
+
 const OtherCard = () => {
   const [data, setData] = useState([]);
   const [cardLabel, setCardLabel] = useState('');
@@ -65,9 +67,6 @@ const OtherCard = () => {
     let mailSubject = '';
     let mailBody = '';
 
-    selectedRow.forEach((value,index)=>{
-      const customerName = data[value].customerName;
-      const totalPledgeValue =  data[value].totalPledgeValue;
     switch (params.id) {
 
 
@@ -77,10 +76,10 @@ const OtherCard = () => {
         <p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are pleased to inform you that we have received your funds deposit.</p>
         <ul>
-          <li>Total Pledge Value: ${totalPledgeValue}</li>
+          <li>Total Pledge Value: [Total Pledge Value]</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Category: [Margin Category]</li>
-          <li>Additional Funds Deposited – [Amount]</li>
+          <li>Additional Funds Deposited – 50000</li>
         </ul>
         <p>Thank you for your cooperation in maintaining the stability of your portfolio. If you have any further questions or require additional assistance, please do not hesitate to contact our support team.</p>
         <p>Best regards,<br>Newgen</p>`;
@@ -90,7 +89,7 @@ const OtherCard = () => {
         mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are pleased to inform you that we have received your additional collateral. Your prompt response is appreciated, and your portfolio has been updated accordingly.</p>
         <ul>
-          <li>Total Pledge Value: ${totalPledgeValue}</li>
+          <li>Total Pledge Value: [Total Pledge Value]</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: [Margin Breach Category]</li>
           <li>Additional Collateral Received – [Amount]</li>
@@ -119,7 +118,7 @@ const OtherCard = () => {
         mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We regret to inform you that, as we have not received the required additional collateral or funds within the specified timeframe, we have been compelled to sell your entire portfolio to cover the breached margin.</p>
         <ul>
-          <li>Total Pledge Value: ${totalPledgeValue}</li>
+          <li>Total Pledge Value: [Total Pledge Value]</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: Below 25%</li>
           <li>Amount Sold: [Amount]</li>
@@ -134,7 +133,7 @@ const OtherCard = () => {
         mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We would like to bring to your attention a margin breach of 40-50% in your account. It is essential that you take immediate action to address this issue and maintain the stability of your portfolio.</p>
         <ul>
-          <li>Total Pledge Value: ${totalPledgeValue}</li>
+          <li>Total Pledge Value: [Total Pledge Value]</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: 40-50%</li>
           <li>Amount Required: [Amount]</li>
@@ -149,7 +148,7 @@ const OtherCard = () => {
         mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. This is a follow-up notice regarding the margin breach of over 50% in your account. Immediate action is required to address this critical issue and prevent potential liquidation of your assets.</p>
         <ul>
-          <li>Total Pledge Value: ${totalPledgeValue}</li>
+          <li>Total Pledge Value: [Total Pledge Value]</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: Over 50%</li>
           <li>Amount Required: [Amount]</li>
@@ -165,7 +164,7 @@ const OtherCard = () => {
         mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are writing to inform you that your portfolio is currently under review due to a margin breach. Our team is closely monitoring the situation to ensure the stability of your account.</p>
         <ul>
-          <li>Total Pledge Value: ${totalPledgeValue}</li>
+          <li>Total Pledge Value: [Total Pledge Value]</li>
           <li>Current Value: [Current Value]</li>
           <li>Margin Breach Category: 35%</li>
           <li>Additional Funds/Collateral Required: [Amount]</li>
@@ -178,9 +177,8 @@ const OtherCard = () => {
       default:
         break;
     }
-
+    
     sendEmail(mailSubject, mailBody);
-  })
   };
 
   return (
@@ -217,6 +215,7 @@ const OtherCard = () => {
           </CardContent>
         </Card>
       </Grid>
+      
       <Grid item xs={12} md={12}>
         <Card>
           <CardContent>
@@ -234,3 +233,4 @@ const OtherCard = () => {
 };
 
 export default OtherCard;
+
