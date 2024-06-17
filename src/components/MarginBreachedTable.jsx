@@ -50,9 +50,10 @@ const FundDeposited = () => {
 
       const handleoneSendEmail = () => {
         selectedRow.forEach((value,index)=>{
-            const customerName = data[value].customerName;
-            const totalPledgeValue =  data[value].totalPledgeValue;
-            const marginAvailable =  data[value].marginAvailable;
+          var a=value-1;
+            const customerName = data[a].customerName;
+            const totalPledgeValue =  data[a].totalPledgeValue;
+            const marginAvailable =  data[a].marginAvailable;
         let mailSubject = 'Immediate Action Required: Margin Breach Notification';
         let mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We regret to inform you that your portfolio has experienced a margin breach below 25%. Below are the details of your current portfolio status:</p>
@@ -71,9 +72,10 @@ const FundDeposited = () => {
       };
       const handletwoSendEmail = () => {
         selectedRow.forEach((value,index)=>{
-            const customerName = data[value].customerName;
-            const totalPledgeValue =  data[value].totalPledgeValue;
-            const marginAvailable =  data[value].marginAvailable;
+          var a=value-1;
+            const customerName = data[a].customerName;
+            const totalPledgeValue =  data[a].totalPledgeValue;
+            const marginAvailable =  data[a].marginAvailable;
         let mailSubject = 'Urgent: Margin Breach Notification';
         let mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are writing to inform you that your portfolio has experienced a margin breach in the 25-40% range. Below are the details of your current portfolio status:</p>
@@ -94,9 +96,10 @@ const FundDeposited = () => {
       };
       const handlethreeSendEmail = () => {
         selectedRow.forEach((value,index)=>{
-            const customerName = data[value].customerName;
-            const totalPledgeValue =  data[value].totalPledgeValue;
-            const marginAvailable =  data[value].marginAvailable;
+          var a=value-1;
+            const customerName = data[a].customerName;
+            const totalPledgeValue =  data[a].totalPledgeValue;
+            const marginAvailable =  data[a].marginAvailable;
         let mailSubject = 'Immediate Attention Required: Margin Breach Notification';
         let mailBody = `<p>Dear ${customerName},</p>
         <p>We hope this message finds you well. We are writing to inform you that your portfolio has experienced a margin breach in the 40-50% range. Below are the details of your current portfolio status:</p>

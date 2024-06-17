@@ -68,9 +68,10 @@ const OtherCard = () => {
     let mailBody = '';
 
     selectedRow.forEach((value,index)=>{
-      const customerName = data[value].customerName;
-      const totalPledgeValue =  data[value].totalPledgeValue;
-      const marginAvailable =  data[value].marginAvailable;
+      var a=value-1;
+      const customerName = data[a].customerName;
+      const totalPledgeValue =  data[a].totalPledgeValue;
+      const marginAvailable =  data[a].marginAvailable;
     switch (params.id) {
 
 
