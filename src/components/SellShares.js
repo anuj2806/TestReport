@@ -88,7 +88,7 @@ export default function SellShares() {
                     value={row.numToSell}
                     onChange={(e) => handleNumToSellChange(row.id, parseInt(e.target.value))}
                     inputProps={{ min: 0, max: row.totalShares }}
-                    sx={{ width: '60px' }} // Adjust the width as needed
+                    sx={{ width: '60px'}} // Adjust the width as needed
                   />
                 </TableCell>
                 <TableCell>{row.sellValue}</TableCell>

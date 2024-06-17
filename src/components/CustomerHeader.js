@@ -1,5 +1,6 @@
 
 import React from 'react';
+import SearchBar from './SearchBar';
 
 const CustomerHeader = () => {
   const styles = {
@@ -9,6 +10,7 @@ const CustomerHeader = () => {
       padding: '10px',
       marginBottom: '20px',
       marginTop: '20px',
+      
     },
     arrowButton: {
       display: 'flex',
@@ -45,24 +47,33 @@ const CustomerHeader = () => {
       padding: '5px 10px',
       fontSize: '14px',
       cursor: 'pointer',
-      marginTop: '-38px', 
+      marginTop: '12px', 
     },
     editIcon: {
       marginRight: '5px',
       fontSize: '14px',
     },
+    newedit:{
+      display: 'flex',
+      justifyContent:'space-between',
+      marginTop:'-45px'
+    }
   };
 
   return (
     <div style={styles.container}>
+      
       <button style={styles.arrowButton}>
         <span style={styles.arrowIcon}>→</span>
       </button>
       <span style={styles.detailsText}>Customer details</span>
+      <div style={styles.newedit}>
+      <SearchBar />
       <button style={styles.editButton}>
         <span style={styles.editIcon}>✎</span>
         Edit
       </button>
+      </div>
     </div>
   );
 };
