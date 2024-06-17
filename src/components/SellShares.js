@@ -68,7 +68,7 @@ export default function SellShares() {
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Total Shares</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>NAV</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Total</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>No. of shares to be sold</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white', width: '200px' }}>No. of shares to be sold</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Sell Value</TableCell>
             </TableRow>
           </TableHead>

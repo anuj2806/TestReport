@@ -7,6 +7,7 @@ import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 import ReportOutlinedIcon from '@mui/icons-material/ReportOutlined';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
 function LoanInfo() {
   const iconStyle = { color: 'blue', marginRight: '8px' };
@@ -28,14 +29,14 @@ function LoanInfo() {
         <div style={labelStyle}>Navi Nerul</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <AttachMoney style={iconStyle} />
+        <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Sanctioned Amount</div>
         <div style={labelStyle}>INR 50,000</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <Security style={iconStyle} />
         <div style={labellight}>Current Security Value</div>
-        <div style={labelStyle}>INR 90,000</div>
+        <div style={labelStyle}>INR 90,059</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <ErrorOutlineOutlinedIcon style={iconStyle} />
@@ -43,7 +44,7 @@ function LoanInfo() {
         <div style={labelStyle}>50%</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <AttachMoney style={iconStyle} />
+        <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Drawing Power</div>
         <div style={labelStyle}>INR 45,000</div>
       </div>
@@ -58,7 +59,7 @@ function LoanInfo() {
         <div style={labelStyle}>INR 5,000</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
-        <AttachMoney style={iconStyle} />
+        <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Additional Collateral Required</div>
         <div style={labelStyle}>INR 10,000</div>
       </div>
