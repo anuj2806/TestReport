@@ -27,10 +27,27 @@ const FundDeposited = () => {
     const [data,setData]=useState([]);
     const {portfolioHealth} = useSelector((state)=>state.portfolioSummary);
     const [selectedRow, setSelectedRow] = useState([]);
+    const filterByMarginAvailablePercentage = (data, condition) => {
+        switch (condition) {
+          case 'Margin Below 25%':
+            return data.filter(item => item.marginAvailablePercentage < 25);
+          case 'Margin 26-40%':
+            return data.filter(item => item.marginAvailablePercentage >= 26 && item.marginAvailablePercentage <= 40);
+          case 'Margin 41-50%':
+            return data.filter(item => item.marginAvailablePercentage >= 41 && item.marginAvailablePercentage <= 50);
+          default:
+            return data;
+        }
+      };
     const updateRowSelectedData = (data)=>{
         console.log(data);
         setSelectedRow(data);
       }
+      const handleClick = (value)=>{
+        console.log(value);
+        setData(filterByMarginAvailablePercentage(portfolioHealth,value.name));
+    }
+
       const handleoneSendEmail = () => {
         selectedRow.forEach((value,index)=>{
             const customerName = data[value].customerName;
@@ -176,7 +193,7 @@ const FundDeposited = () => {
             <Grid item xs={12} md={3} >
                 <Card >
                     <CardContent>
-                        <BreachedChart />
+                        <BreachedChart handleClick={handleClick}/>
                     </CardContent>
                 </Card>
             </Grid>

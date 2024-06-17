@@ -1,8 +1,8 @@
 import React from 'react';
-import { Funnel, FunnelChart, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts';
+import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
-const TotalCasesChart = () => {
+const TotalCasesChart = ({barSize,handleClick}) => {
   const data = [
     {
       "value": 100,
@@ -10,7 +10,7 @@ const TotalCasesChart = () => {
       "fill": "#4285F4"
     },
     {
-      "value": 80,
+      "value": 120,
       "name": "Saket",
       "fill": "#5BC0DE"
     },
@@ -20,59 +20,35 @@ const TotalCasesChart = () => {
       "fill": "#FA8072"
     },
     {
-      "value": 40,
-      "name": "New Friends Colony",
+      "value": 90,
+      "name": "Pitampura",
       "fill": "#FFD700"
     },
     {
-      "value": 20,
+      "value": 50,
       "name": "Noida",
       "fill": "#98FB98"
     }
   ];
 
-  // Calculate the total value
-  const totalValue = data.reduce((acc, item) => acc + item.value, 0);
-
+  
   return (
     <>
     <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Total Cases by Branch</h3>
-    <div style={{height: 200}}>
-        <div style={{position:'relative'}}>
-            <div style={{ width:'80%', height: 200 }}>
-            <ResponsiveContainer>
-                <FunnelChart >
-                <Tooltip />
-                <Funnel
-                    dataKey="value"
-                    data={data}
-                    isAnimationActive
-                    width={300} 
-                >
-                    <LabelList position="centre" fill="#000" stroke="none" dataKey="value"/>
-                </Funnel>
-                </FunnelChart>
-            </ResponsiveContainer>
-            </div>
-            <div style={{position:'absolute',right:'10px',top:'50px'}}>
-                <div>
-                    <ul>
-                        {data.map(item => (
-                            <li style={{color:item.fill,fontFamily:'Inter'}} className="legend-item">{item.name}</li>
-                        ))}
-                    </ul>        
-                </div>
-            </div>
-            <text
-            dominantBaseline="middle"
-            style={{ fontSize: '16px', fontWeight: 'bold',marginLeft:'33%'}}
+      <div style={{height: 200 }}>
+        <ResponsiveContainer >
+          <BarChart
+            data={data}
           >
-            Total {totalValue}
-        </text>
+            <CartesianGrid stroke="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend  layout="vertical" verticalAlign="top" align="right"  payload={ [{ value:'Punjabi Bagh' , type: 'circle', color:"#4285F4" },{ value:'Saket' , type: 'circle', color: "#5BC0DE"},{ value:'Green Park' , type: 'circle', color: "#FA8072"},{ value:'Pitampura' , type: 'circle', color: "#FFD700"},{ value:'Pitampura' , type: 'circle', color: "#98FB98"}]} />
+            <Bar dataKey="value" barSize={barSize}  activeBar={<Rectangle fill="blue" stroke="blue" />} onClick={handleClick} />
+          </BarChart>
+        </ResponsiveContainer>
         </div>
-        
-    </div>
-    
     </>
   );
 }

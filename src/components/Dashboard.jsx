@@ -221,22 +221,25 @@ const Dashboard = () => {
                 </Link>
             </Grid>
             <Grid item xs={12} md={6}>
+                <Link to={'/portfolioHealth'} style={{ textDecoration: 'none' }}>   
                 <Card  >
                     <CardContent >
                         <PortfolioChart />
                     </CardContent>
                 </Card>
+                </Link>
             </Grid>
             <Grid item xs={12} md={6} >
-            <Link to={'/portfolioHealth'} style={{ textDecoration: 'none' }}>
+            <Link to={'/totalCaseTable'} style={{ textDecoration: 'none' }}>
                 <Card >
                     <CardContent>
-                        <TotalCasesChart/>
+                        <TotalCasesChart barSize={'30'}/>
                     </CardContent>
                 </Card>
             </Link>
             </Grid>
             <Grid item xs={12} md={6}>
+                
                 <Card >
                     <CardContent>
                         <ChannelsChart/>
@@ -264,7 +267,7 @@ const Dashboard = () => {
                                 <Link to={'/dashboard/secondNotice'} style={{ textDecoration: 'none' }}>
                                     <Card >
                                         <CardContent style={{backgroundColor:'#FFD8D4'}}>
-                                            <Stack direction={'row'} gap={2} alignItems={'center'} mt={-1}>
+                                            <Stack direction={'row'} gap={2} alignItems={'center'} mt={-1} mb={-1}>
                                                 <div className='numberCircle' style={{background:'#FF5151'}}><p >2</p></div>
                                                 <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'400'} color={'#FF5151'}>Second Notice</Typography>
                                             </Stack>
@@ -274,7 +277,7 @@ const Dashboard = () => {
                                 <Link to={'/dashboard/firstNotice'} style={{ textDecoration: 'none' }}>
                                     <Card >
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
-                                            <Stack direction={'row'} gap={2} alignItems={'center'}  mt={-1}>
+                                            <Stack direction={'row'} gap={2} alignItems={'center'}  mt={-1} mb={-1}>
                                             <div className='numberCircle' style={{background:'blue'}}><p>1</p></div>
                                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'400'} color={'#4B7BEC'}>First Notice</Typography>
                                             </Stack>
@@ -314,7 +317,7 @@ const Dashboard = () => {
                                 <Grid item xs={12}>
                                 <Link to={'/dashboard/firstNotice'} style={{ textDecoration: 'none' }}>
                                     <Card  >
-                                        <CardContent style={{backgroundColor:'#FFD8D4'}}>
+                                        <CardContent style={{backgroundColor:'#F5F9F5'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
                                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Cases with 5days Deadline</Typography>
@@ -336,7 +339,7 @@ const Dashboard = () => {
                                 <Grid item xs={12}>
                                     <Link to={'/dashboard/marginUnderReview'} style={{ textDecoration: 'none' }}>
                                     <Card  >
-                                        <CardContent style={{backgroundColor:'#F1F5FE'}}>
+                                        <CardContent style={{backgroundColor:'#FFF9EE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
                                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Margin Under Review</Typography>

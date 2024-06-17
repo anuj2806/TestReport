@@ -5,7 +5,7 @@ import './Styles/sidenav.css';
 import './Styles/dashboard.css';
 import TotalCasesChart from './components/TotalCasesChart';
 import Header from './components/Header';
-import FundDeposited from './components/FundDeposited';
+import FundDeposited from './components/MarginBreachedTable';
 import OtherCard from './components/OtherCard';
 import SearchBar from './components/SearchBar';
 import Login from './components/LogIn';
@@ -13,6 +13,7 @@ import { Grid } from '@mui/material';
 import CustomerDetails from './components/CustomerDetails';
 import CustomerHeader from './components/CustomerHeader';
 import GenerateReport from './components/GenerateReport';
+import TotalCaseTable from './components/TotalCaseTable';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function AuthenticatedRoutes() {
               <Route path="/uploadexcel" element={<></>} />
               <Route path="/portfolioHealth" element={<FundDeposited />} />
               <Route path="/dashboard/:id" element={<OtherCard />} />
+              <Route path="/totalCaseTable" element={<TotalCaseTable/>} />
               
             </Routes>
           </Grid>
