@@ -6,11 +6,11 @@ const ChannelsChart = () => {
         {
           name: 'Shares',
           value: 80,
-          "fill": "#5BC0DE"
+          "fill": "#4B7BEC"
         },{
             name: 'Mutual Funds',
             value: 35,
-            "fill": "#FFD700"
+            "fill": "#FAB740"
           }]
     return (
         <>
@@ -25,7 +25,7 @@ const ChannelsChart = () => {
             <YAxis />
             <Tooltip />
             <Legend  layout="vertical" verticalAlign="middle" align="right" payload={ [{ value:'Shares' , type: 'circle', color:"#5BC0DE" },{ value:'Mutual Funds' , type: 'circle', color: "#FFD700"}]} />
-            <Bar dataKey="value" barSize={30}  activeBar={<Rectangle fill="blue" stroke="blue" />} />
+            <Bar dataKey="value" barSize={20}  activeBar={<Rectangle fill="blue" stroke="blue" />} />
           </BarChart>
         </ResponsiveContainer>
         </div>

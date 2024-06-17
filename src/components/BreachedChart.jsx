@@ -1,11 +1,11 @@
 import React from 'react'
 import { PieChart, Pie, Legend, ResponsiveContainer } from 'recharts';
 
-const BreachedChart = () => {
+const BreachedChart = ({handleClick}) => {
     
     const data1 = [
-        { name: 'Margin 26-40%', value:25,fill: "#2589FB" },
         { name: 'Margin Below 25%', value: 40,fill: "#F42200" },
+        { name: 'Margin 26-40%', value:25,fill: "#2589FB" },
         { name: 'Margin 41-50%', value: 35,fill: "#03D952" }
       ];
   return (
@@ -15,7 +15,7 @@ const BreachedChart = () => {
         <div style={{height: 350}}>
             <ResponsiveContainer>
             <PieChart width={280} height={280}>
-                <Pie data={data1} dataKey="value" cx="50%" cy="30%" innerRadius={55} outerRadius={80} fill="#82ca9d" label />
+                <Pie data={data1} dataKey="value" cx="50%" cy="30%" innerRadius={55} outerRadius={80} fill="#82ca9d" label onClick={handleClick}/>
                 {/* <Legend layout="vertical" verticalAlign="bottom" align="centre" iconType="circle" /> */}
             </PieChart>
             </ResponsiveContainer>
