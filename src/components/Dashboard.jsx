@@ -294,12 +294,13 @@ const Dashboard = () => {
                             <Grid container xs={12} spacing={1}>
                                 <Grid item xs={12}>
                                 <Link to={'/dashboard/secondNotice'} style={{ textDecoration: 'none' }}>
-                                    <Card  >
+                                    <Card  sx={{border:'1px solid #4B7BEC'}}>
                                         <CardContent style={{backgroundColor:'#F1F5FE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
-                                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Cases with 3 Days Deadline</Typography>
-                                                    <Typography variant="h5" component="h5" >9</Typography>
+                                                    <div style={{backgroundColor:'#DE3B40',borderRadius:'5px',marginTop:'-12px',alignSelf:'start'}}><Typography pl={1} pr={1} fontFamily={'Inter'} color={'white'} fontSize={'12px'} fontWeight={'700'}> Due in 3 Days </Typography></div>
+                                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Cases with 3 Days Deadline</Typography>
+                                                    <Typography variant="h5" component="h5" fontWeight={'700'}>9</Typography>
                                                 </Stack>
                                                 <img src={i1} alt="alert" width={40} height={40}/>
                                                 <AvatarGroup max={4}>
@@ -320,12 +321,12 @@ const Dashboard = () => {
                                         <CardContent style={{backgroundColor:'#F5F9F5'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
-                                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Cases with 5days Deadline</Typography>
-                                                    <Typography variant="h5" component="h5" >16</Typography>
+                                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Cases with 5days Deadline</Typography>
+                                                    <Typography variant="h5" component="h5" fontWeight={'700'} >16</Typography>
                                                 </Stack>
                                                 <img src={i2} alt="denger" width={40} height={40}/>
                                                 <AvatarGroup max={4}>
-                                                <Avatar alt="Travis Howard" src={p2} />
+                                                {/* <Avatar alt="Travis Howard" src={p2} /> */}
                                                 <Avatar alt="Cindy Baker" src={p3} />
                                                 <Avatar alt="Agnes Walker" src={p4} />
                             
@@ -342,8 +343,8 @@ const Dashboard = () => {
                                         <CardContent style={{backgroundColor:'#FFF9EE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
                                                 <Stack direction={'column'} alignItems={'center'}>
-                                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'500'}>Margin Under Review</Typography>
-                                                    <Typography variant="h5" component="h5" >12</Typography>
+                                                    <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Margin Under Review</Typography>
+                                                    <Typography variant="h5" component="h5" fontWeight={'700'} >12</Typography>
                                                 </Stack>
                                                 <img src={i3} alt="alert" width={40} height={40}/>
                                                 <AvatarGroup max={4}>
