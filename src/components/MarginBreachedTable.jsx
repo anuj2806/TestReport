@@ -46,10 +46,10 @@ const FundDeposited = () => {
             return data.filter(item => item.marginAvailablePercentage >= 26 && item.marginAvailablePercentage <= 40);
           case 'Margin 41-50%':
             return data.filter(item => item.marginAvailablePercentage >= 41 && item.marginAvailablePercentage <= 50);
-          case 'Below 2 Lakh':
-            return data.filter(item => item.sanctionAmount < 200000);
-          case 'Between 2-5 Lakh':
-            return data.filter(item => item.sanctionAmount >= 200000 && item.sanctionAmount <= 500000);
+          case 'Below 3 Lakh':
+            return data.filter(item => item.sanctionAmount < 300000);
+          case 'Between 3-5 Lakh':
+            return data.filter(item => item.sanctionAmount >= 300000 && item.sanctionAmount <= 500000);
           case 'Above 5 Lakh':
             return data.filter(item => item.sanctionAmount >= 500000);
           default:

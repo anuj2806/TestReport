@@ -27,6 +27,13 @@ const TotalCaseTable = () => {
     const [data,setData]=useState([]);
     const {portfolioHealth} = useSelector((state)=>state.portfolioSummary);
     const [selectedRow, setSelectedRow] = useState([]);
+    const [branchdata,setbranchdata] = useState({
+            'pb':80,
+            'saket':40,
+            'green':65,
+            'pitam':30,
+            'noida':55
+    });
     const filterByBranch = (data, branchType) => {
         return data.filter(item => item.branch === branchType);
       };
@@ -125,7 +132,7 @@ const TotalCaseTable = () => {
             <Grid item xs={6} md={12} className='datatiles'>
             <Card >
                     <CardContent>
-                        <TotalCasesChart barSize={'70'} handleClick={handleClick} tick={true}/>
+                        <TotalCasesChart barSize={'70'} handleClick={handleClick} tick={true} branchdata={branchdata}/>
                     </CardContent>
                 </Card>
             </Grid>

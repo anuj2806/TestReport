@@ -2,34 +2,34 @@ import React from 'react';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
-const TotalCasesChart = ({barSize,handleClick,tick}) => {
-  
+const TotalCasesChart = ({barSize,handleClick,tick,branchdata}) => {
+
   const data = [
     {
-      "value": 100,
+      value: branchdata.pb,
       "name": "Punjabi Bagh",
       "fill": "#4285F4"
     },
     {
-      "value": 120,
+      value: branchdata.saket,
       "name": "Saket",
       "fill": "#5BC0DE",
       
     },
     {
-      "value": 60,
+      value: branchdata.green,
       "name": "Green Park",
       "fill": "#FA8072",
      
     },
     {
-      "value": 90,
+      value: branchdata.pitam,
       "name": "Pitampura",
       "fill": "#FFD700",
       
     },
     {
-      "value": 50,
+      value: branchdata.noida,
       "name": "Noida",
       "fill": "#98FB98",
       

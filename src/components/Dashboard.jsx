@@ -19,15 +19,61 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import userAvtar from '../assests/profile.png'
 import upload from '../assests/upload.png'
 import filter from '../assests/filter.png'
+import refresh from '../assests/refresh-button.png'
 import edit from '../assests/edit.png'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {useDispatch} from 'react-redux'
 const Dashboard = () => {
-    // const [funddata,setfunddata] = useState([]);
+    const [cardData,setcardData] = useState({
+        'fund':10,
+        'additional':6,
+        'partial':8,
+        'completed':30
+    });
+    const [portfoliodata,setportfoliodata] = useState({
+        'breached':75,
+        'under':10,
+        'within':15
+    });
+    const [branchdata,setbranchdata] = useState({
+        'pb':75,
+        'saket':30,
+        'green':50,
+        'pitam':20,
+        'noida':60
+    });
+    const [channeldata,setchanneldata] = useState({
+        'shares':80,
+        'fund':35
+    });
     // const [collateraldata,setcollateraldata] = useState([]);
     // const [partialSeldata,setpartialSeldata] = useState([]);
     // const [completedSelldata,setcompletedSelldata] = useState([]);
+    const refreshPage =()=>{
+        setcardData({
+            'fund':8,
+            'additional':4,
+            'partial':7,
+            'completed':32
+        });
+        setportfoliodata({
+            'breached':70,
+            'under':15,
+            'within':20
+        })
+        setbranchdata({
+            'pb':80,
+            'saket':40,
+            'green':65,
+            'pitam':30,
+            'noida':55
+        })
+        setchanneldata({
+            'shares':90,
+            'fund':50
+        })
+    }
     const dispatch = useDispatch();
     const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata,firstNotice,secondNotice,marginUnderReview) =>{
         dispatch({
@@ -147,6 +193,10 @@ const Dashboard = () => {
                     <Typography variant="h6" component="h6" fontFamily={'Epilogue'} fontWeight={'800'}>Dashboard</Typography>
                     <Stack direction={'row'} gap={[1,2]}>
                         <button>
+                            <img src={refresh} alt="upload" width={20} height={20} onClick={refreshPage}/>
+                            <input type="file" name="uploadexcel" id="hiddenUpload" />
+                        </button>
+                        <button>
                             <img src={upload} alt="upload" width={20} height={20} onClick={()=>(document.getElementById("hiddenUpload").click())}/>
                             <input type="file" name="uploadexcel" id="hiddenUpload" />
                         </button>
@@ -169,7 +219,7 @@ const Dashboard = () => {
                                 <img src={one} alt="" width={'40px'} height={'40px'}/>
                                 <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'} color={'primary'}>Fund Deposited</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5" align='center' fontFamily={'Inter'} fontWeight={'700'}>9</Typography>
+                                <Typography variant="h5" component="h5" align='center' fontFamily={'Inter'} fontWeight={'700'}>{cardData.fund}</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
@@ -184,7 +234,7 @@ const Dashboard = () => {
                                 <img src={two} alt="" width={'40px'} height={'40px'}/>
                                 <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}  color={'primary'}>Additional Collateral</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5" align='center' fontFamily={'Inter'} fontWeight={'700'}>12</Typography>
+                                <Typography variant="h5" component="h5" align='center' fontFamily={'Inter'} fontWeight={'700'}>{cardData.additional}</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
@@ -199,7 +249,7 @@ const Dashboard = () => {
                                 <img src={three} alt="" width={'40px'} height={'40px'}/>
                                 <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}  color={'primary'}>Partial Sell</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5"  align='center' fontFamily={'Inter'} fontWeight={'700'}>5</Typography>
+                                <Typography variant="h5" component="h5"  align='center' fontFamily={'Inter'} fontWeight={'700'}>{cardData.partial}</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
@@ -214,7 +264,7 @@ const Dashboard = () => {
                                 <img src={four} alt="" width={'40px'} height={'40px'}/>
                                 <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}  color={'primary'}>Completed Sell</Typography>
                             </Stack>
-                                <Typography variant="h5" component="h5" align='center'  fontFamily={'Inter'} fontWeight={'700'}>4</Typography>
+                                <Typography variant="h5" component="h5" align='center'  fontFamily={'Inter'} fontWeight={'700'}>{cardData.completed}</Typography>
                         </Stack>
                     </CardContent>
                 </Card>
@@ -224,7 +274,7 @@ const Dashboard = () => {
                 <Link to={'/portfolioHealth'} style={{ textDecoration: 'none' }}>   
                 <Card  >
                     <CardContent >
-                        <PortfolioChart />
+                        <PortfolioChart portfoliodata={portfoliodata}/>
                     </CardContent>
                 </Card>
                 </Link>
@@ -233,7 +283,7 @@ const Dashboard = () => {
             <Link to={'/totalCaseTable'} style={{ textDecoration: 'none' }}>
                 <Card >
                     <CardContent>
-                        <TotalCasesChart barSize={'30'} tick={false}/>
+                        <TotalCasesChart barSize={'30'} tick={false} branchdata={branchdata}/>
                     </CardContent>
                 </Card>
             </Link>
@@ -242,7 +292,7 @@ const Dashboard = () => {
                 
                 <Card >
                     <CardContent>
-                        <ChannelsChart/>
+                        <ChannelsChart channeldata={channeldata}/>
                     </CardContent>
                 </Card>
             </Grid>

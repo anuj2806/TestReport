@@ -1,20 +1,20 @@
 import React from 'react';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const ChannelsChart = () => {
+const ChannelsChart = ({channeldata}) => {
     const data = [
         {
           name: 'Shares',
-          value: 80,
+          value: channeldata.shares,
           "fill": "#4B7BEC"
         },{
             name: 'Mutual Funds',
-            value: 35,
+            value: channeldata.fund,
             "fill": "#FAB740"
           }]
     return (
         <>
-      <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Channels</h3>
+      <h3 style={{fontFamily:'Epilogue', fontWeight:'700'}}>Security Type</h3>
       <div style={{height: 200 }}>
         <ResponsiveContainer >
           <BarChart
