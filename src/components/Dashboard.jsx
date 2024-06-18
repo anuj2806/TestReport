@@ -233,7 +233,7 @@ const Dashboard = () => {
             <Link to={'/totalCaseTable'} style={{ textDecoration: 'none' }}>
                 <Card >
                     <CardContent>
-                        <TotalCasesChart barSize={'30'}/>
+                        <TotalCasesChart barSize={'30'} tick={false}/>
                     </CardContent>
                 </Card>
             </Link>

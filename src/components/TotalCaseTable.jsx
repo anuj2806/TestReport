@@ -125,7 +125,7 @@ const TotalCaseTable = () => {
             <Grid item xs={6} md={12} className='datatiles'>
             <Card >
                     <CardContent>
-                        <TotalCasesChart barSize={'70'} handleClick={handleClick}/>
+                        <TotalCasesChart barSize={'70'} handleClick={handleClick} tick={true}/>
                     </CardContent>
                 </Card>
             </Grid>

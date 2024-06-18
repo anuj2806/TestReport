@@ -13,14 +13,14 @@ const BreachedChart = ({handleClick}) => {
       <h3 style={{fontFamily:'Epilogue', fontWeight:'700',textAlign:'center'}}>Breached Margin Breakup</h3>
       <div style={{position:'relative'}}>
         <div style={{height: 350}}>
-            <ResponsiveContainer>
+            <ResponsiveContainer >
             <PieChart width={280} height={280}>
                 <Pie data={data1} dataKey="value" cx="50%" cy="30%" innerRadius={55} outerRadius={80} fill="#82ca9d" label onClick={handleClick}/>
                 {/* <Legend layout="vertical" verticalAlign="bottom" align="centre" iconType="circle" /> */}
             </PieChart>
             </ResponsiveContainer>
         </div>
-            <div style={{position:'absolute',bottom:'0px',width:'100%'}} >
+            <div style={{position:'absolute',bottom:'10px',width:'100%' }} >
                 <div>
                     <ul>
                         {data1.map(item => (
