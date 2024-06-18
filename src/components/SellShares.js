@@ -9,10 +9,10 @@ function createData(sno, isin, company, currentValue, totalShares, nav, total, n
 }
 
 const initialRows = [
-  createData(1, 'INE002A01018', 'Reliance Ltd', 70, 510, 35700, 35700, 0, 0),
-  createData(2, 'INE081A01012', 'TCS', 5, 1010, 5050, 5050, 0, 0),
-  createData(3, 'INE152A01029', 'Infosys', 5, 4139, 20695, 20695, 0, 0),
-  createData(4, 'INE112A01023', 'Kotak Mahindra', 10, 2760, 27600, 27600, 0, 0),
+  createData(1, 'INE002A01018', 'RELIANCE', 510, 70, 35700, 35700, 0, 0),
+  createData(2, 'INE081A01012', 'TCS', 1010, 6, 5050, 5050, 0, 0),
+  createData(3, 'INE152A01029', 'INFY', 4139, 5, 20695, 20695, 0, 0),
+  createData(4, 'INE112A01023', 'KOTAKBANK', 2760, 10, 27600, 27600, 0, 0),
 ];
 
 export default function SellShares() {
@@ -88,7 +88,7 @@ export default function SellShares() {
                     value={row.numToSell}
                     onChange={(e) => handleNumToSellChange(row.id, parseInt(e.target.value))}
                     inputProps={{ min: 0, max: row.totalShares }}
-                    sx={{ width: '60px'}} // Adjust the width as needed
+                    sx={{ width: '90px'}} // Adjust the width as needed
                   />
                 </TableCell>
                 <TableCell>{row.sellValue}</TableCell>
@@ -114,10 +114,7 @@ export default function SellShares() {
           <Typography variant="h6" sx={{ fontSize: '14px' }}>Total Sell Value:</Typography>
           <Typography variant="h8" color="white" sx={{ paddingTop: '15px', marginRight: '246px' }}>INR {totalSellValue}</Typography>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h6" sx={{ fontSize: '14px' }}>Penalty:</Typography>
-          <Typography variant="h8" color="white" sx={{ paddingTop: '15px', marginRight: '246px' }}>INR 1,000</Typography>
-        </div>
+        
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Button variant="contained" color="error" sx={{ mt: 2 }} onClick={handleSellClick}>SELL</Button>

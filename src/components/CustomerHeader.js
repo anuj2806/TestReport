@@ -26,12 +26,13 @@ const CustomerHeader = () => {
       width: '40px',
       height: '40px',
       marginTop: '-38px',
+     
     },
     arrowIcon: {
       color: '#6e6e6e', 
     },
     detailsText: {
-      flexGrow: 1,
+      flexGrow: 0.6,
       fontSize: '24px',
       fontWeight: 'bold',
       marginTop: '-38px', 
@@ -48,6 +49,7 @@ const CustomerHeader = () => {
       fontSize: '14px',
       cursor: 'pointer',
       marginTop: '12px', 
+      marginRight:'-235px'
     },
     editIcon: {
       marginRight: '5px',
@@ -55,8 +57,9 @@ const CustomerHeader = () => {
     },
     newedit:{
       display: 'flex',
-      justifyContent:'space-between',
-      marginTop:'-45px'
+      justifyContent:'space-around',
+      marginTop:'-45px',
+      width:'436px'
     }
   };
 
