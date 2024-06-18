@@ -36,7 +36,7 @@ function LoanInfo() {
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <Security style={iconStyle} />
         <div style={labellight}>Current Security Value</div>
-        <div style={labelStyle}>INR 90,059</div>
+        <div style={labelStyle}>INR 90,055</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <ErrorOutlineOutlinedIcon style={iconStyle} />
@@ -46,7 +46,7 @@ function LoanInfo() {
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Drawing Power</div>
-        <div style={labelStyle}>INR 45,000</div>
+        <div style={labelStyle}>INR 45,028</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <WarningAmberOutlinedIcon style={iconStyle} />
@@ -56,17 +56,17 @@ function LoanInfo() {
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <ReportOutlinedIcon style={iconStyle} />
         <div style={labellight}>Current Overdue</div>
-        <div style={labelStyle}>INR 5,000</div>
+        <div style={labelStyle}>INR 4,972</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Additional Collateral Required</div>
-        <div style={labelStyle}>INR 10,000</div>
+        <div style={labelStyle}>INR 9,944</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <ErrorOutlineOutlinedIcon style={iconStyle} />
         <div style={labellight}>Margin Breached</div>
-        <div style={{ marginLeft: 'auto', ...iconStyle1 }}>44.44%</div>
+        <div style={{ marginLeft: 'auto', ...iconStyle1 }}>44.50%</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <MarkEmailReadOutlinedIcon style={iconStyle} />
