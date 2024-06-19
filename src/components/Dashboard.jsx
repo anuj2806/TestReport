@@ -18,6 +18,7 @@ import ChannelsChart from './ChannelsChart'
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import userAvtar from '../assests/profile.png'
 import upload from '../assests/upload.png'
+import calendar from '../assests/calendar.png'
 import filter from '../assests/filter.png'
 import refresh from '../assests/refresh-button.png'
 import edit from '../assests/edit.png'
@@ -26,6 +27,7 @@ import axios from 'axios'
 import {useDispatch} from 'react-redux'
 import Loader from './SpinLoader'; // Import the Loader component
 import '../Styles/SpinLoader.css'; // Import your CSS styles
+import dayjs from 'dayjs'
 const steps = [
     'Fetching Data',
     'Updating NAV Values',
@@ -233,18 +235,21 @@ const Dashboard = () => {
                     <CardContent className='dashboardHeader' >
                     <Typography variant="h6" component="h6" fontFamily={'Epilogue'} fontWeight={'800'}>Dashboard</Typography>
                     <Stack direction={'row'} gap={[1,2]}>
-                        <button>
-                            <img src={refresh} alt="upload" width={20} height={20} onClick={refreshPage}/>
-                            <input type="file" name="uploadexcel" id="hiddenUpload" />
+                        <button style={{padding:'2px 5px',display:'flex',justifyContent:'space-between',alignItems:'center',width:'130px'}}>
+                            <img src={calendar} alt="upload" width={20} height={20}  />
+                            <p>{dayjs().format('MMMM DD, YYYY')}</p>
                         </button>
-                        <button>
+                        <button style={{padding:'2px 5px'}}>
+                            <img src={refresh} alt="upload" width={20} height={20} onClick={refreshPage} />
+                        </button>
+                        <button style={{padding:'2px 5px'}}>
                             <img src={upload} alt="upload" width={20} height={20} onClick={()=>(document.getElementById("hiddenUpload").click())}/>
                             <input type="file" name="uploadexcel" id="hiddenUpload" />
                         </button>
-                        <button>
+                        <button style={{padding:'2px 5px'}}>
                             <img src={filter} alt="filter" width={20} height={20}/>
                         </button>
-                        <button>
+                        <button style={{padding:'2px 5px'}}>
                             <img src={edit} alt="edit" width={20} height={20}/>
                         </button>
                     </Stack>
