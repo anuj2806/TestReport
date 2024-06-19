@@ -2,32 +2,37 @@ import React from 'react';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
-const TotalCasesChart = ({barSize,handleClick}) => {
+const TotalCasesChart = ({barSize,handleClick,tick,branchdata}) => {
+
   const data = [
     {
-      "value": 100,
+      value: branchdata.pb,
       "name": "Punjabi Bagh",
       "fill": "#4285F4"
     },
     {
-      "value": 120,
+      value: branchdata.saket,
       "name": "Saket",
-      "fill": "#5BC0DE"
+      "fill": "#5BC0DE",
+      
     },
     {
-      "value": 60,
+      value: branchdata.green,
       "name": "Green Park",
-      "fill": "#FA8072"
+      "fill": "#FA8072",
+     
     },
     {
-      "value": 90,
+      value: branchdata.pitam,
       "name": "Pitampura",
-      "fill": "#FFD700"
+      "fill": "#FFD700",
+      
     },
     {
-      "value": 50,
+      value: branchdata.noida,
       "name": "Noida",
-      "fill": "#98FB98"
+      "fill": "#98FB98",
+      
     }
   ];
 
@@ -41,7 +46,7 @@ const TotalCasesChart = ({barSize,handleClick}) => {
             data={data}
           >
             <CartesianGrid stroke="3 3" />
-            <XAxis dataKey="name" />
+             <XAxis dataKey="name" tick={tick} />
             <YAxis />
             <Tooltip />
             <Legend  layout="vertical" verticalAlign="top" align="right"  payload={ [{ value:'Punjabi Bagh' , type: 'circle', color:"#4285F4" },{ value:'Saket' , type: 'circle', color: "#5BC0DE"},{ value:'Green Park' , type: 'circle', color: "#FA8072"},{ value:'Pitampura' , type: 'circle', color: "#FFD700"},{ value:'Noida' , type: 'circle', color: "#98FB98"}]} />

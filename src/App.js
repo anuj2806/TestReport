@@ -9,11 +9,12 @@ import FundDeposited from './components/MarginBreachedTable';
 import OtherCard from './components/OtherCard';
 import SearchBar from './components/SearchBar';
 import Login from './components/LogIn';
-import { Grid } from '@mui/material';
+import { Alert, Grid, Typography } from '@mui/material';
 import CustomerDetails from './components/CustomerDetails';
 import CustomerHeader from './components/CustomerHeader';
 import GenerateReport from './components/GenerateReport';
 import TotalCaseTable from './components/TotalCaseTable';
+import { useState } from 'react';
 
 function App() {
   return (
@@ -57,10 +58,17 @@ function AuthenticatedRoutes() {
 }
 
 function CustomerPage() {
+  const [customerDetail,setCustomerDetail]=useState(false);
+  const [norecord,setnorecord]=useState(false);
+  const searchValue =(num)=>{
+    if(num==12345){setCustomerDetail(true);setnorecord(false)}else{setCustomerDetail(false);setnorecord(true)};
+  }
+ 
   return (
     <>
-      <CustomerHeader />
-      <CustomerDetails />
+      <CustomerHeader searchValue={searchValue}/>
+      {customerDetail && <CustomerDetails />}
+      {norecord && <Alert severity="error" sx={{width:'200px',margin:'auto'}}>No Customer Found!!</Alert>}
     </>
   );
 }

@@ -35,7 +35,7 @@ const columns = [
 const FundTable = ({tabledata,updateRowSelectedData}) => {
     console.log(tabledata)
   return (
-    <div style={{ height: 424, width: '100%' }}>
+    <div style={{ height: 465, width: '100%' }}>
       <DataGrid
         rowHeight={35}
         rows={tabledata}

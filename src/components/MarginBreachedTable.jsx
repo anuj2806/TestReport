@@ -22,11 +22,22 @@ import SearchBar from './SearchBar';
 import {useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import MailingApi,{ sendEmail } from './MailingApi';
-
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import LoanChart from './LoanChart';
 const FundDeposited = () => {
     const [data,setData]=useState([]);
     const {portfolioHealth} = useSelector((state)=>state.portfolioSummary);
     const [selectedRow, setSelectedRow] = useState([]);
+    const [alignment, setAlignment] = React.useState('b');
+
+    const handleChange = (
+        event: React.MouseEvent<HTMLElement>,
+        newAlignment: string,
+    ) => {
+        setAlignment(newAlignment);
+    };
+
     const filterByMarginAvailablePercentage = (data, condition) => {
         switch (condition) {
           case 'Margin Below 25%':
@@ -35,12 +46,18 @@ const FundDeposited = () => {
             return data.filter(item => item.marginAvailablePercentage >= 26 && item.marginAvailablePercentage <= 40);
           case 'Margin 41-50%':
             return data.filter(item => item.marginAvailablePercentage >= 41 && item.marginAvailablePercentage <= 50);
+          case 'Below 3 Lakh':
+            return data.filter(item => item.sanctionAmount < 300000);
+          case 'Between 3-5 Lakh':
+            return data.filter(item => item.sanctionAmount >= 300000 && item.sanctionAmount <= 500000);
+          case 'Above 5 Lakh':
+            return data.filter(item => item.sanctionAmount >= 500000);
           default:
             return data;
         }
       };
     const updateRowSelectedData = (data)=>{
-        console.log(data);
+        // console.log(data);
         setSelectedRow(data);
       }
       const handleClick = (value)=>{
@@ -196,7 +213,19 @@ const FundDeposited = () => {
             <Grid item xs={12} md={3} >
                 <Card >
                     <CardContent>
-                        <BreachedChart handleClick={handleClick}/>
+                    <ToggleButtonGroup
+                        color="primary"
+                        value={alignment}
+                        exclusive
+                        onChange={handleChange}
+                        aria-label="Platform"
+                        size='small'
+                        sx={{marginLeft:'30px'}}
+                        >
+                        <ToggleButton value="b">Percentage</ToggleButton>
+                        <ToggleButton value="l">Amount</ToggleButton>
+                        </ToggleButtonGroup>
+                        {alignment=='b'?<BreachedChart handleClick={handleClick}/>:<LoanChart handleClick={handleClick}/>}
                     </CardContent>
                 </Card>
             </Grid>

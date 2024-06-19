@@ -44,22 +44,22 @@ function CustomerDetails() {
           <Card>
             <CardContent>
             <div style={{
-  border: '1px solid #ccc', 
-  borderRadius: '0px', 
-  width: '146px',
-  height: '119px', 
-  overflow: 'hidden', 
-  display: 'inline-block', 
-  margin: '5px', 
-  marginLeft:'84px',
-}}>
-  <img src={customer} alt="Nandini Singh" style={{
-    width: '100%', 
-    height: '100%', 
-    objectFit: 'cover', 
-    marginLeft:'-9px',
-  }} />
-</div>
+              border: '1px solid #ccc', 
+              borderRadius: '0px', 
+              width: '146px',
+              height: '119px', 
+              overflow: 'hidden', 
+              display: 'inline-block', 
+              margin: '5px', 
+              marginLeft:'84px',
+            }}>
+              <img src={customer} alt="Nandini Singh" style={{
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover', 
+                marginLeft:'-9px',
+              }} />
+            </div>
               <Typography variant="h6" sx={{ color: '#4B7BEC' }}  >Ms. Nandini Singh</Typography>
               <Grid container justifyContent="center" spacing={1}>
                 <Grid item>

@@ -2,7 +2,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 
-const CustomerHeader = () => {
+const CustomerHeader = ({searchValue}) => {
   const styles = {
     container: {
       display: 'flex',
@@ -71,7 +71,7 @@ const CustomerHeader = () => {
       </button>
       <span style={styles.detailsText}>Customer details</span>
       <div style={styles.newedit}>
-      <SearchBar />
+      <SearchBar searchValue={searchValue}/>
       <button style={styles.editButton}>
         <span style={styles.editIcon}>✎</span>
         Edit
