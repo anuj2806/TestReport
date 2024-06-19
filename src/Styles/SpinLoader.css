@@ -1,0 +1,108 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  body {
+    background: #fff;
+    height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .dialog-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transform: scale(0.5); /* Scale down to 50% */
+  }
+  
+  #heading {
+    font-weight: bolder;
+    font-size: larger;
+    color: #00006b;
+    margin-bottom: 5%;
+  }
+  
+  .navmenu {
+    margin-top: 20px;
+  }
+  
+  .navmenu ul {
+    padding: 0;
+    text-align: center;
+  }
+  
+  .navmenu ul::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: calc(100% - 58px);
+    left: 50%;
+    top: 0;
+    background: #a2a9ae;
+    z-index: -1;
+    margin-top: 29px;
+  }
+  
+  .navmenu ul li {
+    padding: 12px 0;
+  }
+  
+  .navmenu ul li a {
+    text-decoration: none;
+    position: relative;
+    background: #fff;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    font-weight: 500;
+    color: #05293d;
+  }
+  
+  .navmenu ul li a:before {
+    position: absolute;
+    background: #fff;
+    width: 22px;
+    height: 21px;
+    left: -48px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 22px;
+    border: 5px solid #dfd4cc;
+    transition: ease background 250ms;
+  }
+  
+  .navmenu ul li a.active {
+    font-weight: 700;
+    color: #00006b;
+  }
+  
+  .navmenu ul li a.active::before {
+    background: #fff;
+    font-family: FontAwesome;
+    content: "\f00c";
+  }
+  
+  .navmenu ul li a.active::after {
+    background: #ed7d31;
+    transition: ease-in background 1s;
+  }
+  
+  #checks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #dialog > div > img {
+    height: 166px; /* Reduced size */
+    width: 175.5px; /* Reduced size */
+  }
+  
