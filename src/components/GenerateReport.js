@@ -4,23 +4,23 @@ import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { Box, Typography, Button, IconButton } from '@mui/material';
 import { saveAs } from 'file-saver';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import SpinningCircle from '../assests/SpinningCircle.gif';
+import Loader from './SpinLoader'; // Import the Loader component
 import '../Styles/SpinLoader.css'; // Import your CSS styles
+
+const steps = [
+  'Fetching Data',
+  'Updating NAV Values',
+  'Identifying Shares',
+  'Updating New Profile Values',
+  'Calculating LTV',
+  'Calculating Margin Breach',
+  'Updating Dashboard'
+];
 
 export default function ExcelToDataGrid() {
   const [excelData, setExcelData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-
-  const steps = [
-    'Fetching Data',
-    'Updating NAV Values',
-    'Identifying Shares',
-    'Updating New Profile Values',
-    'Calculating LTV',
-    'Calculating Margin Breach',
-    'Updating Dashboard'
-  ];
 
   useEffect(() => {
     if (loading) {
@@ -104,25 +104,7 @@ export default function ExcelToDataGrid() {
         onChange={handleFileChange}
         style={{ display: 'none' }}
       />
-      {loading && (
-        <div className="dialog-box" id="dialog">
-          <div>
-            <p id="heading">Calculating...</p>
-            <img src={SpinningCircle} />
-          </div>
-          <div className="navmenu">
-            <ul id="checks">
-              {steps.map((step, index) => (
-                <li key={index} style={{ marginBottom: '10px' }}>
-                  <a href="#" className={index === currentStep ? 'active' : ''}>
-                    {step}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+      <Loader open={loading} steps={steps} currentStep={currentStep} />
       <div style={{ height: 'calc(100vh - 150px)', width: '100%', marginTop: '20px' }}>
         <DataGrid
           rows={excelData}

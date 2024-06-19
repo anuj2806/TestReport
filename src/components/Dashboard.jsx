@@ -24,7 +24,22 @@ import edit from '../assests/edit.png'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {useDispatch} from 'react-redux'
+import Loader from './SpinLoader'; // Import the Loader component
+import '../Styles/SpinLoader.css'; // Import your CSS styles
+const steps = [
+    'Fetching Data',
+    'Updating NAV Values',
+    'Identifying Shares',
+    'Updating New Profile Values',
+    'Calculating LTV',
+    'Calculating Margin Breach',
+    'Updating Dashboard'
+  ];
 const Dashboard = () => {
+    //my changes
+    const [loading, setLoading] = useState(false);
+    const [currentStep, setCurrentStep] = useState(0);
+    //my changes
     const [cardData,setcardData] = useState({
         'fund':10,
         'additional':6,
@@ -52,7 +67,12 @@ const Dashboard = () => {
     // const [completedSelldata,setcompletedSelldata] = useState([]);
     const refreshPage =()=>{
 
-//loader code
+        //loader code
+        
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+          
 
         setcardData({
             'fund':8,
@@ -76,6 +96,7 @@ const Dashboard = () => {
             'shares':90,
             'fund':50
         })
+        }, 5000);
     }
     const dispatch = useDispatch();
     const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata,firstNotice,secondNotice,marginUnderReview) =>{
@@ -113,6 +134,23 @@ const Dashboard = () => {
         })
     }
     useEffect(()=>{
+        //chetan loader
+        if (loading) {
+            let stepIndex = 0;
+            const interval = 5000 / steps.length; // Total 5 seconds divided by number of steps
+      
+            const intervalId = setInterval(() => {
+              setCurrentStep(stepIndex);
+              stepIndex += 1;
+              if (stepIndex >= steps.length) {
+                clearInterval(intervalId);
+              }
+            }, interval);
+      
+            return () => clearInterval(intervalId);
+          }
+        //chetan loader
+     
         const fetchData = async () =>{
             try{
             const {data} = await axios.get('https://csgrlosdemo.newgensoftware.net:8443/lasportalbackendservices/?status=FUND_DEPOSITED');
@@ -184,7 +222,7 @@ const Dashboard = () => {
         }
         fetchData();
 
-    },[]);
+    },[loading]);
 
   return (  
 
@@ -419,6 +457,7 @@ const Dashboard = () => {
                 </Grid>
             </Grid>
         </Grid>
+        <Loader open={loading} steps={steps} currentStep={currentStep} />
         </>
     
   )
