@@ -61,7 +61,7 @@ const OtherCard = () => {
         break;
     }
   }, [params.id]);
-  
+
 
   const handleSendEmail = () => {
     let mailSubject = '';
@@ -72,6 +72,7 @@ const OtherCard = () => {
       const customerName = data[a].customerName;
       const totalPledgeValue =  data[a].totalPledgeValue;
       const marginAvailable =  data[a].marginAvailable;
+      const marginAvailablePercentage=data[a].marginAvailablePercentage;
     switch (params.id) {
 
 
@@ -83,7 +84,7 @@ const OtherCard = () => {
         <ul>
           <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: ${marginAvailable}</li>
-          <li>Margin Category: [Margin Category]</li>
+          <li>Margin Category: ${marginAvailablePercentage}</li>
           <li>Additional Funds Deposited – 50000</li>
         </ul>
         <p>Thank you for your cooperation in maintaining the stability of your portfolio. If you have any further questions or require additional assistance, please do not hesitate to contact our support team.</p>
@@ -96,7 +97,7 @@ const OtherCard = () => {
         <ul>
           <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: ${marginAvailable}</li>
-          <li>Margin Breach Category: [Margin Breach Category]</li>
+          <li>Margin Breach Category: ${marginAvailablePercentage}</li>
           <li>Additional Collateral Received – [Amount]</li>
         </ul>
         <p>Thank you for your cooperation in maintaining the stability of your portfolio. If you have any further questions or require additional assistance, please do not hesitate to contact our support team.</p>
