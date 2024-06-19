@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <div style={{height:'100px',marginLeft:'-14px'}}>
         <Card>
-            <CardContent className='mainHeader'>
+            <CardContent className='mainHeader' style={{height:'75px'}}>
                 <img src={newgen} alt="newgen"  height={40}/>
                 <Stack direction={'row'} gap={[1,2]}>
                     <IoCallOutline size={25}/>
