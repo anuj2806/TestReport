@@ -142,7 +142,7 @@ const OtherCard = () => {
           <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: ${marginAvailable}</li>
           <li>Margin Breach Category: 40-50%</li>
-          <li>Amount Required: [Amount]</li>
+          <li>Amount Required: 10,000</li>
         </ul>
         <p>Please deposit the required additional funds or collateral within the next 24 hours to rectify this breach. Failure to do so may result in partial or complete liquidation of your assets to cover the margin call.</p>
         <p>Thank you for your prompt attention to this matter. If you have any questions or need further assistance, please contact our support team.</p>
@@ -157,7 +157,7 @@ const OtherCard = () => {
           <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: ${marginAvailable}</li>
           <li>Margin Breach Category: Over 50%</li>
-          <li>Amount Required: [Amount]</li>
+          <li>Amount Required: 10,000</li>
         </ul>
         <p>Please deposit the required additional funds or collateral within the next 24 hours to rectify this breach. Failure to do so will result in partial or complete liquidation of your assets to cover the margin call.</p>
         <p>We understand the urgency of this matter and are here to offer any support you may need. Please contact our support team immediately to discuss your options.</p>
@@ -173,7 +173,7 @@ const OtherCard = () => {
           <li>Total Pledge Value: ${totalPledgeValue}</li>
           <li>Current Value: ${marginAvailable}</li>
           <li>Margin Breach Category: 35%</li>
-          <li>Additional Funds/Collateral Required: [Amount]</li>
+          <li>Additional Funds/Collateral Required: 10,000</li>
         </ul>
         <p>We kindly request that you deposit the required additional funds or collateral within the next 24 hours to rectify this breach. Your prompt action will help maintain the stability of your portfolio.</p>
         <p>Thank you for your cooperation. If you have any questions or need further assistance, please contact our support team.</p>

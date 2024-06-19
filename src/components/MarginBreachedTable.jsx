@@ -98,7 +98,7 @@ const FundDeposited = () => {
         <p>We hope this message finds you well. We are writing to inform you that your portfolio has experienced a margin breach in the 25-40% range. Below are the details of your current portfolio status:</p>
         <ul>
           <li>Total Pledge Value: ${totalPledgeValue}</li>
-          <li>Current Value: [Current Value]</li>
+          
           <li>Margin Breach Category: 25-40%</li>
           <li>Current Margin: ${marginAvailable}</li>
         </ul>
@@ -122,8 +122,8 @@ const FundDeposited = () => {
         <p>We hope this message finds you well. We are writing to inform you that your portfolio has experienced a margin breach in the 40-50% range. Below are the details of your current portfolio status:</p>
         <ul>
           <li>Total Pledge Value: ${totalPledgeValue}</li>
-          <li>Current Value: [Current Value]</li>
-          <li>Margin Breach Category: 40-50%</li>
+      
+          
           <li>Current Margin: ${marginAvailable}</li>
         </ul>
         <p>In order to rectify this breach and avoid any potential liquidation of your assets, we kindly request that you submit additional collateral or deposit funds within the next 5 days. Use the URL to submit additional collateral/funds: <a href="https://tytlmsdemo.newgensoftware.net//LASPortal">https://tytlmsdemo.newgensoftware.net//LASPortal</a></p>
