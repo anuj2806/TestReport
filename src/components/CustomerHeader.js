@@ -44,12 +44,13 @@ const CustomerHeader = ({searchValue}) => {
       backgroundColor: '#4285f4', 
       color: 'white',
       border: 'none',
-      borderRadius: '5px',
-      padding: '5px 10px',
+      borderRadius: '44px',
+      padding: '10px 14px',
       fontSize: '14px',
       cursor: 'pointer',
-      marginTop: '12px', 
-      marginRight:'-235px'
+      marginTop: '6px', 
+      marginRight:'-238px',
+      marginLeft:'10px',
     },
     editIcon: {
       marginRight: '5px',
@@ -57,9 +58,10 @@ const CustomerHeader = ({searchValue}) => {
     },
     newedit:{
       display: 'flex',
-      justifyContent:'space-around',
+      // justifyContent:'space-around',
       marginTop:'-45px',
-      width:'436px'
+      width:'436px',
+      marginRight:'-295px'
     }
   };
 
@@ -76,6 +78,7 @@ const CustomerHeader = ({searchValue}) => {
         <span style={styles.editIcon}>✎</span>
         Edit
       </button>
+      
       </div>
     </div>
   );
