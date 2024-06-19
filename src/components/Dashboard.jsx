@@ -51,6 +51,9 @@ const Dashboard = () => {
     // const [partialSeldata,setpartialSeldata] = useState([]);
     // const [completedSelldata,setcompletedSelldata] = useState([]);
     const refreshPage =()=>{
+
+//loader code
+
         setcardData({
             'fund':8,
             'additional':4,

@@ -106,8 +106,10 @@ export default function ExcelToDataGrid() {
       />
       {loading && (
         <div className="dialog-box" id="dialog">
-          <p id="heading">Calculating...</p>
-          <img src={SpinningCircle} />
+          <div>
+            <p id="heading">Calculating...</p>
+            <img src={SpinningCircle} />
+          </div>
           <div className="navmenu">
             <ul id="checks">
               {steps.map((step, index) => (

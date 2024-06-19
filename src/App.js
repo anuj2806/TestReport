@@ -61,7 +61,7 @@ function CustomerPage() {
   const [customerDetail,setCustomerDetail]=useState(false);
   const [norecord,setnorecord]=useState(false);
   const searchValue =(num)=>{
-    if(num==12345){setCustomerDetail(true);setnorecord(false)}else{setCustomerDetail(false);setnorecord(true)};
+    if(num==22707978){setCustomerDetail(true);setnorecord(false)}else{setCustomerDetail(false);setnorecord(true)};
   }
  
   return (
