@@ -21,8 +21,8 @@ const LoanChart = ({handleClick}) => {
         <>
       <h3 style={{fontFamily:'Epilogue', fontWeight:'700',textAlign:'center'}}>Loan Amount</h3>
       <div style={{position:'relative'}}>
-      <div style={{minHeight: 370}}>
-        <ResponsiveContainer height={280} style={{marginLeft:'-20px'}}>
+      <div style={{minHeight: 400}}>
+        <ResponsiveContainer height={320} style={{marginLeft:'-20px'}}>
           <BarChart
             data={data}
           >
@@ -39,7 +39,7 @@ const LoanChart = ({handleClick}) => {
                 <div>
                     <ul>
                         {data.map(item => (
-                            <li style={{color:item.fill,margin:'10px',marginLeft:'-30px'}} className="legend-item">
+                            <li style={{color:item.fill,margin:'10px'}} className="legend-item">
                                 <div style={{display:'flex',justifyContent:'space-between'}}>
                                     <span>{item.name}</span>
                                     <span>{item.value}</span>

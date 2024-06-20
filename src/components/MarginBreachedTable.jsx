@@ -220,7 +220,8 @@ const FundDeposited = () => {
                         onChange={handleChange}
                         aria-label="Platform"
                         size='small'
-                        sx={{marginLeft:'30px'}}
+                        sx={{marginLeft:'35px',marginBottom:'10px'}}
+                        
                         >
                         <ToggleButton value="b">Percentage</ToggleButton>
                         <ToggleButton value="l">Amount</ToggleButton>
