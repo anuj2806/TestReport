@@ -11,7 +11,7 @@ import p5 from '../assests/profiles/p5.png'
 import i1 from '../assests/profiles/i1.png'
 import i2 from '../assests/profiles/i2.png'
 import i3 from '../assests/profiles/i3.png'
-
+import { IoCalendarOutline } from "react-icons/io5";
 import TotalCasesChart from './TotalCasesChart'
 import PortfolioChart from './PortfolioChart'
 import ChannelsChart from './ChannelsChart'
@@ -19,6 +19,7 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import userAvtar from '../assests/profile.png'
 import upload from '../assests/upload.png'
 import calendar from '../assests/calendar.png'
+import { HiOutlineRefresh } from "react-icons/hi";
 import filter from '../assests/filter.png'
 import refresh from '../assests/refresh-button.png'
 import edit from '../assests/edit.png'
@@ -235,12 +236,13 @@ const Dashboard = () => {
                     <CardContent className='dashboardHeader' >
                     <Typography variant="h6" component="h6" fontFamily={'Epilogue'} fontWeight={'800'}>Dashboard</Typography>
                     <Stack direction={'row'} gap={[1,2]}>
-                        <button style={{padding:'2px 5px',display:'flex',justifyContent:'space-between',alignItems:'center',width:'130px'}}>
-                            <img src={calendar} alt="upload" width={20} height={20}  />
+                        <button style={{padding:'5px 5px',display:'flex',justifyContent:'space-between',alignItems:'center',width:'130px',backgroundColor:'#4B7BEC',color:'white',border:'1px solid #4B7BEC',borderRadius:'5px'}}>
+                            <IoCalendarOutline color='white' size={'22px'}/>
                             <p>{dayjs().format('MMMM DD, YYYY')}</p>
                         </button>
-                        <button style={{padding:'2px 5px'}}>
-                            <img src={refresh} alt="upload" width={20} height={20} onClick={refreshPage} />
+                        <button style={{padding:'5px 5px',display:'flex',justifyContent:'space-between',alignItems:'center',backgroundColor:'#4B7BEC',color:'white',border:'1px solid #4B7BEC',borderRadius:'5px'}} onClick={refreshPage}>
+                            <HiOutlineRefresh color='white' size={'22px'}/>
+                            {/* <img src={refresh} alt="upload" width={20} height={20} onClick={refreshPage} /> */}
                         </button>
                         <button style={{padding:'2px 5px'}}>
                             <img src={upload} alt="upload" width={20} height={20} onClick={()=>(document.getElementById("hiddenUpload").click())}/>
@@ -425,8 +427,9 @@ const Dashboard = () => {
                                                 {/* <Avatar alt="Travis Howard" src={p2} /> */}
                                                 <Avatar alt="Cindy Baker" src={p3} />
                                                 <Avatar alt="Agnes Walker" src={p4} />
-                            
+                                                {/* <Avatar alt="Trevor Henderson" src='' /> */}
                                                 </AvatarGroup>
+                                                <Stack></Stack>
                                                 <MoreVertOutlinedIcon style={{marginTop:'10px'}}/>
                                             </Stack>
                                         </CardContent>
@@ -438,10 +441,12 @@ const Dashboard = () => {
                                     <Card  >
                                         <CardContent style={{backgroundColor:'#FFF9EE'}}>
                                             <Stack direction={'row'} justifyContent={'space-between'} height={40}>
+                                                <Stack></Stack>
                                                 <Stack direction={'column'} alignItems={'center'}>
                                                     <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontWeight={'700'}>Margin Under Review</Typography>
                                                     <Typography variant="h5" component="h5" fontWeight={'700'} >12</Typography>
                                                 </Stack>
+                                                <Stack></Stack>
                                                 <img src={i3} alt="alert" width={40} height={40}/>
                                                 <AvatarGroup max={4}>
                                                 <Avatar alt="Travis Howard" src={p2} />

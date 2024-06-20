@@ -158,7 +158,7 @@ const FundDeposited = () => {
                             <GoAlert size={25} color="red"/>
                             <Typography variant="subtitle1" component="subtitle1" fontFamily={'Epilogue'} fontWeight={'700'}>Margin Below 25</Typography>
                             </Stack>
-                            <AvatarGroup max={4}>
+                            <AvatarGroup max={5}>
                                 <Avatar alt="Travis Howard" src={p2} />
                                 <Avatar alt="Cindy Baker" src={p3} />
                                 <Avatar alt="Agnes Walker" src={p4} />
