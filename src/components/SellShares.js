@@ -4,15 +4,15 @@ import {
 } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
-function createData(sno, isin, company, currentValue, totalShares, nav, total, numToSell, sellValue) {
-  return { id: sno, sno, isin, company, currentValue, totalShares, nav, total, numToSell, sellValue };
+function createData(sno, isin, company, currentValue, totalShares, total, numToSell, sellValue) {
+  return { id: sno, sno, isin, company, currentValue, totalShares, total, numToSell, sellValue };
 }
 
 const initialRows = [
-  createData(1, 'INE002A01018', 'RELIANCE', 510, 70, 35700, 35700, 0, 0),
-  createData(2, 'INE081A01012', 'TCS', 1010, 6, 5050, 5050, 0, 0),
-  createData(3, 'INE152A01029', 'INFY', 4139, 5, 20695, 20695, 0, 0),
-  createData(4, 'INE112A01023', 'KOTAKBANK', 2760, 10, 27600, 27600, 0, 0),
+  createData(1, 'INE002A01018', 'RELIANCE', 510, 70, 35700, 0, 0),
+  createData(2, 'INE081A01012', 'TCS', 1010, 6, 5050, 0, 0),
+  createData(3, 'INE152A01029', 'INFY', 4139, 5, 20695, 0, 0),
+  createData(4, 'INE112A01023', 'KOTAKBANK', 2760, 10, 27600, 0, 0),
 ];
 
 export default function SellShares() {
@@ -64,9 +64,8 @@ export default function SellShares() {
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>S.No</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>ISIN Number</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Company</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Current Share Value(NAV)</TableCell>
+              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Current Share Value</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Total Shares</TableCell>
-              <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>NAV</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Total</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white', width: '200px' }}>No. of shares to be sold</TableCell>
               <TableCell sx={{ backgroundColor: '#4B7BEC',color:'white' }}>Sell Value</TableCell>
@@ -80,7 +79,6 @@ export default function SellShares() {
                 <TableCell>{row.company}</TableCell>
                 <TableCell>{row.currentValue}</TableCell>
                 <TableCell>{row.totalShares}</TableCell>
-                <TableCell>{row.nav}</TableCell>
                 <TableCell>{row.total}</TableCell>
                 <TableCell>
                   <TextField
@@ -97,7 +95,7 @@ export default function SellShares() {
             <TableRow>
               <TableCell colSpan={2} />
               <TableCell align="right" colSpan={2}>Portfolio Value:</TableCell>
-              <TableCell colSpan={1} align="left">INR {totalPortfolioValue} </TableCell>
+              <TableCell colSpan={1} align="left">INR 90055 </TableCell>
 
               <TableCell align="center" colSpan={2}>Total Sell Value:</TableCell>
               <TableCell colSpan={1} align="left">INR {totalSellValue} </TableCell>
