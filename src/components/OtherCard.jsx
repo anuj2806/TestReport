@@ -16,6 +16,7 @@ import MailingApi,{ sendEmail } from './MailingApi';
 const OtherCard = () => {
   const [data, setData] = useState([]);
   const [cardLabel, setCardLabel] = useState('');
+  const [sendLabel,setsendLabel] = useState('');
   const [selectedRow, setSelectedRow] = useState([]);
   const { fund, collateral, partialSell, completedSell, firstNotice, secondNotice, marginUnderReview } = useSelector((state) => state.portfolioSummary);
   const params = useParams();
@@ -31,31 +32,38 @@ const OtherCard = () => {
       case 'fundDeposited':
         setData(fund);
         setCardLabel('Fund Deposited');
+        setsendLabel('Send Email For Acknowledgement')
         break;
       case 'collateral':
         setData(collateral);
         setCardLabel('Additional Collateral');
+        setsendLabel('Send Email For Acknowledgement')
         break;
       case 'partialSell':
         setData(partialSell);
         setCardLabel('Partial Sell');
+        setsendLabel('Send Email For Acknowledgement')
         break;
       case 'completedSell':
       //  setData(completedSell);
         setData(firstNotice);
         setCardLabel('Completed Sell');
+        setsendLabel('Send Email For Acknowledgement')
         break;
       case 'firstNotice':
         setData(firstNotice);
         setCardLabel('First Notice');
+        setsendLabel('Send Email For Notice')
         break;
       case 'secondNotice':
         setData(secondNotice);
         setCardLabel('Second Notice');
+        setsendLabel('Send Email For Notice')
         break;
       case 'marginUnderReview':
         setData(marginUnderReview);
         setCardLabel('Margin Under Review');
+        setsendLabel('Send Email For Acknowledgement')
         break;
       default:
         break;
@@ -218,7 +226,7 @@ const OtherCard = () => {
                 <Avatar alt="Trevor Henderson" src={p5} />
               </AvatarGroup>
               <CiMail size={40} color="blue" onClick={handleSendEmail} style={{ cursor: 'pointer' }} />
-              <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontSize={'12px'}>Send Email For Sell</Typography>
+              <Typography variant="subtitle1" component="subtitle1" fontFamily={'Inter'} fontSize={'12px'}>{sendLabel}</Typography>
             </Stack>
           </CardContent>
         </Card>
