@@ -68,7 +68,7 @@ function CustomerPage() {
     <>
       <CustomerHeader searchValue={searchValue}/>
       {customerDetail && <CustomerDetails />}
-      {norecord && <Alert severity="error" sx={{width:'200px',margin:'auto'}}>No Customer Found!!</Alert>}
+      {norecord && <Alert severity="error" sx={{width:'250px',margin:'auto'}}>No Customer Found!!</Alert>}
     </>
   );
 }
