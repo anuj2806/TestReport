@@ -8,6 +8,14 @@ import p2 from '../assests/profiles/p2.png'
 import p3 from '../assests/profiles/p3.png'
 import p4 from '../assests/profiles/p4.png'
 import p5 from '../assests/profiles/p5.png'
+import p6 from '../assests/profiles/p6.png'
+import p7 from '../assests/profiles/p7.png'
+import p8 from '../assests/profiles/p8.png'
+import p9 from '../assests/profiles/p9.png'
+import p10 from '../assests/profiles/p10.png'
+import p11 from '../assests/profiles/p11.png'
+import p12 from '../assests/profiles/p12.png'
+
 import i1 from '../assests/profiles/i1.png'
 import i2 from '../assests/profiles/i2.png'
 import i3 from '../assests/profiles/i3.png'
@@ -425,8 +433,8 @@ const Dashboard = () => {
                                                 <img src={i2} alt="denger" width={40} height={40}/>
                                                 <AvatarGroup max={4}>
                                                 {/* <Avatar alt="Travis Howard" src={p2} /> */}
-                                                <Avatar alt="Cindy Baker" src={p3} />
-                                                <Avatar alt="Agnes Walker" src={p4} />
+                                                <Avatar alt="Cindy Baker" src={p6} />
+                                                <Avatar alt="Agnes Walker" src={p7} />
                                                 {/* <Avatar alt="Trevor Henderson" src='' /> */}
                                                 </AvatarGroup>
                                                 <Stack></Stack>
@@ -449,10 +457,10 @@ const Dashboard = () => {
                                                 <Stack></Stack>
                                                 <img src={i3} alt="alert" width={40} height={40}/>
                                                 <AvatarGroup max={4}>
-                                                <Avatar alt="Travis Howard" src={p2} />
-                                                <Avatar alt="Cindy Baker" src={p3} />
-                                                <Avatar alt="Agnes Walker" src={p4} />
-                                                <Avatar alt="Trevor Henderson" src='' />
+                                                <Avatar alt="Travis Howard" src={p8} />
+                                                <Avatar alt="Cindy Baker" src={p9} />
+                                                <Avatar alt="Agnes Walker" src={p10} />
+                                                <Avatar alt="Trevor Henderson" src={p11} />
                                                 </AvatarGroup>
                                                 <MoreVertOutlinedIcon style={{marginTop:'10px'}}/>
                                             </Stack>
