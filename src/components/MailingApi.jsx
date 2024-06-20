@@ -10,7 +10,7 @@ export const sendEmail = (mailSubject, mailBody) => {
 
   const body = {
     mailBody: mailBody,
-    mailTo: 'nehaproductanalyst@gmail.com',
+    mailTo: 'neha.newgen@gmail.com',
     mailSubject: mailSubject
   };
 
