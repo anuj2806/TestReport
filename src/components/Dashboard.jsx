@@ -107,7 +107,7 @@ const Dashboard = () => {
             'shares':90,
             'fund':50
         })
-        }, 8000);
+        }, 15000);
     }
     const dispatch = useDispatch();
     const dispatchAction = (funddata,collateraldata,partialSeldata,completedSelldata,portfolioHealthdata,firstNotice,secondNotice,marginUnderReview) =>{
@@ -148,7 +148,7 @@ const Dashboard = () => {
         //chetan loader
         if (loading) {
             let stepIndex = 0;
-            const interval = 8000 / steps.length; // Total 5 seconds divided by number of steps
+            const interval = 15000 / steps.length; // Total 5 seconds divided by number of steps
       
             const intervalId = setInterval(() => {
               setCurrentStep(stepIndex);

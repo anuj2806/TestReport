@@ -25,7 +25,7 @@ export default function ExcelToDataGrid() {
   useEffect(() => {
     if (loading) {
       let stepIndex = 0;
-      const interval = 8000 / steps.length; // Total 5 seconds divided by number of steps
+      const interval = 15000 / steps.length; // Total 5 seconds divided by number of steps
 
       const intervalId = setInterval(() => {
         setCurrentStep(stepIndex);
@@ -62,7 +62,7 @@ export default function ExcelToDataGrid() {
         setTimeout(() => {
           setExcelData(formattedData);
           setLoading(false);
-        }, 8000);
+        }, 15000);
       };
       reader.readAsArrayBuffer(file);
     }
