@@ -71,15 +71,15 @@ const NavBar = () => {
                         <ListItemText primary="Generate Report" sx={{marginLeft:'-20px'}}/>
                     </ListItemButton>
             </Link>
-            <Link to={'/uploadexcel'} style={{ textDecoration: 'none',color:'black' }} >
+            <Link to={'/newCustomers/newDisbursal'} style={{ textDecoration: 'none',color:'black' }} >
                     <ListItemButton
                         selected={selectedIndex === 4}
                         onClick={(event) => handleListItemClick(event, 4)}
                         >
                         <ListItemIcon>
-                            <FileUploadOutlinedIcon sx={selectedIndex===4?{color:'white' }:''}/>
+                            <ListTwoToneIcon sx={selectedIndex===4?{color:'white' }:''}/>
                         </ListItemIcon>
-                        <ListItemText primary="Upload Excel" sx={{marginLeft:'-20px'}}/>
+                        <ListItemText primary="New Customers" sx={{marginLeft:'-20px'}}/>
                     </ListItemButton>
             </Link>
         </div>

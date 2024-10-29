@@ -8,6 +8,7 @@ import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 import ReportOutlinedIcon from '@mui/icons-material/ReportOutlined';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 function LoanInfo() {
   const iconStyle = { color: 'blue', marginRight: '8px' };
@@ -18,6 +19,11 @@ function LoanInfo() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
+        <InfoOutlinedIcon style={iconStyle} />
+        <div style={labellight}>Loan Account Number</div>
+        <div style={labelStyle}>9823983301</div>
+      </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <AlternateEmailOutlinedIcon style={iconStyle} />
         <div style={labellight}>Total Pledge Value</div>

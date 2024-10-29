@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Card, CardContent, Typography, Avatar, Grid, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import { styled } from '@mui/system';
 import { Phone, Email, Home, Info, WhatsApp, Chat } from '@mui/icons-material';
@@ -9,6 +9,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import WhatsAppIntegration from '../components/WhatsAppIntegration'
 
 const Root = styled('div')(({ theme }) => ({
   flexGrow: 1,
@@ -37,6 +38,13 @@ function handleClick() {
 }
 
 function CustomerDetails() {
+  //from here for whatsapp
+  const whatsAppIntegrationRef = useRef();
+
+  const handleWhatsAppClick = () => {
+    whatsAppIntegrationRef.current.sendWhatsAppMessage();
+  };
+  //to here for whatsapp
   return (
     <Root>
       <Grid container spacing={2} bgcolor={'#f9f9f9'} pr={2}>
@@ -63,7 +71,7 @@ function CustomerDetails() {
               <Typography variant="h6" sx={{ color: '#4B7BEC' }}  >Ms. Nandini Singh</Typography>
               <Grid container justifyContent="center" spacing={1}>
                 <Grid item>
-                  <IconButton>
+                  <IconButton onClick={handleWhatsAppClick}>
                     <WhatsApp sx={{ color: '#25D366' }} /> {/* WhatsApp green */}
                   </IconButton>
                 </Grid>
@@ -89,6 +97,11 @@ function CustomerDetails() {
                   <InfoOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}
                   <div  sx={{ color: '#6E7787',fontFamily: 'Inter, sans-serif'}}>CIF</div>
                   <div style={{ marginLeft: 'auto',color: '#6E7787' }}>22707978</div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
+                  <InfoOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}
+                  <div sx={{ color: '#6E7787',fontFamily: 'Inter, sans-serif'}}>Loan Account Number</div>
+                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>9823983301</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
                   <HomeOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}
@@ -120,6 +133,8 @@ function CustomerDetails() {
           </Card>
         </Grid>
       </Grid>
+       {/* Include the WhatsAppIntegration component */}
+       <WhatsAppIntegration ref={whatsAppIntegrationRef} />
     </Root>
   );
 }

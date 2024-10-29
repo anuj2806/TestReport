@@ -7,7 +7,8 @@ import TotalCasesChart from './components/TotalCasesChart';
 import Header from './components/Header';
 import FundDeposited from './components/MarginBreachedTable';
 import OtherCard from './components/OtherCard';
-import SearchBar from './components/SearchBar';
+//import SearchBar from './components/SearchBar';
+import CustomerSearchBar from './components/CustomerSearchBar'
 import Login from './components/LogIn';
 import { Alert, Grid, Typography } from '@mui/material';
 import CustomerDetails from './components/CustomerDetails';
@@ -45,7 +46,7 @@ function AuthenticatedRoutes() {
               <Route path="/customer" element={<CustomerPage />} />
               <Route path="/settings" element={<></>} />
               <Route path="/genratereport" element={<GenerateReport/>} />
-              <Route path="/uploadexcel" element={<></>} />
+              <Route path="/newCustomers/:id" element={<OtherCard />} />
               <Route path="/portfolioHealth" element={<FundDeposited />} />
               <Route path="/dashboard/:id" element={<OtherCard />} />
               <Route path="/totalCaseTable" element={<TotalCaseTable/>} />
@@ -61,7 +62,7 @@ function CustomerPage() {
   const [customerDetail,setCustomerDetail]=useState(false);
   const [norecord,setnorecord]=useState(false);
   const searchValue =(num)=>{
-    if(num==22707978){setCustomerDetail(true);setnorecord(false)}else{setCustomerDetail(false);setnorecord(true)};
+    if(num == 22707978 || num == 9823983301){setCustomerDetail(true);setnorecord(false)}else{setCustomerDetail(false);setnorecord(true)};
   }
  
   return (

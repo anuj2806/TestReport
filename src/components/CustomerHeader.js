@@ -1,6 +1,7 @@
 
 import React from 'react';
-import SearchBar from './SearchBar';
+//import SearchBar from './SearchBar';
+import SearchBar from './CustomerSearchBar'
 
 const CustomerHeader = ({searchValue}) => {
   const styles = {

@@ -34,6 +34,12 @@ const OtherCard = () => {
         setCardLabel('Fund Deposited');
         setsendLabel('Send Email For Acknowledgement')
         break;
+        case 'newDisbursal':
+          setData(fund);
+          setCardLabel('Welcome');
+          setsendLabel('Send Email For New Customers')
+          break;
+        
       case 'collateral':
         setData(collateral);
         setCardLabel('Additional Collateral');
@@ -112,6 +118,24 @@ const OtherCard = () => {
         <p>Best regards,<br>Newgen</p>
         `;
         break;
+        case 'newDisbursal':
+          mailSubject = 'Welcome to the Loan Against Share (LAS) Portal';
+          mailBody = `
+            <p>Dear ${customerName},</p>
+            <p>We are excited to welcome you to the Loan Against Share (LAS) Portal. As a valued customer, you now have access to a wide range of services designed to help you leverage your portfolio and manage your financial needs with ease.</p>
+            <p>Through our portal, you can:</p>
+            <ul>
+              <li>View and manage your pledged shares and collateral</li>
+              <li>Monitor your loan details and margin status</li>
+              <li>Request additional credit against your portfolio</li>
+              <li>Access real-time market updates and personalized insights</li>
+            </ul>
+            <p>Your journey with us begins now, and we are here to assist you at every step. Should you have any questions or need assistance, please do not hesitate to reach out to our support team.</p>
+            <p>Thank you for choosing us as your financial partner. We look forward to helping you achieve your financial goals.</p>
+            <p>Best regards,<br>Newgen</p>
+          `;
+          break;
+        
       case 'partialSell':
         mailSubject = 'Important Update: Partial Sale of Shares Due to Margin Breach';
         mailBody = `<p>Dear ${customerName},</p>

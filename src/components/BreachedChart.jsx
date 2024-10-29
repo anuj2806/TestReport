@@ -4,9 +4,9 @@ import { PieChart, Pie, Legend, ResponsiveContainer } from 'recharts';
 const BreachedChart = ({handleClick}) => {
     
     const data1 = [
-        { name: 'Margin Below 25%', value: 40,fill: "#F42200" },
-        { name: 'Margin 26-40%', value:25,fill: "#2589FB" },
-        { name: 'Margin 41-50%', value: 35,fill: "#03D952" }
+        { name: 'Margin Below 25%', value: 42,fill: "#F42200" },
+        { name: 'Margin 26-40%', value:27,fill: "#2589FB" },
+        { name: 'Margin 41-50%', value: 36,fill: "#03D952" }
       ];
   return (
     <>
