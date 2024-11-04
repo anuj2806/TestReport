@@ -54,7 +54,7 @@ function CustomerDetails() {
             <div style={{
               border: '1px solid #ccc', 
               borderRadius: '0px', 
-              width: '146px',
+              width: '188px',
               height: '119px', 
               overflow: 'hidden', 
               display: 'inline-block', 
@@ -96,12 +96,12 @@ function CustomerDetails() {
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
                   <InfoOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}
                   <div  sx={{ color: '#6E7787',fontFamily: 'Inter, sans-serif'}}>CIF</div>
-                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>22707978</div>
+                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>CT00062343</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
                   <InfoOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}
                   <div sx={{ color: '#6E7787',fontFamily: 'Inter, sans-serif'}}>Loan Account Number</div>
-                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>9823983301</div>
+                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>DL240707106528</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
                   <HomeOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}

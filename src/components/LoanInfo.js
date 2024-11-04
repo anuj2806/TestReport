@@ -10,24 +10,27 @@ import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
-function LoanInfo() {
+function LoanInfo({loanData, highlightMargin,MoveACtionTakeMargin}) {
   const iconStyle = { color: 'blue', marginRight: '8px' };
   const iconStyle1 = { color: 'red', marginRight: '245px' };
+  const marginColorStyle = highlightMargin ? { color: 'yellow', marginRight: '245px' } : { color: 'red', marginRight: '245px' };
+  const MoveACtionTakeStyle=MoveACtionTakeMargin ? { marginLeft: 'auto',marginRight:'239px' } : { marginLeft: 'auto',marginRight:'239px' };
   const labelStyle = { marginLeft: 'auto',marginRight:'245px' };
-  const listItemStyle = { marginBottom: '21px' }; // Added spacing between each line
+  const listItemStyle = { marginBottom: '21px',marginLeft:'16px' }; // Added spacing between each line
+  const klistItem1Style={marginBottom: '21px',marginTop:'14px',marginLeft:'16px'}
   const labellight={color:'#6E7787'}
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
+      <div style={{ display: 'flex', alignItems: 'center', ...klistItem1Style }}>
         <InfoOutlinedIcon style={iconStyle} />
         <div style={labellight}>Loan Account Number</div>
-        <div style={labelStyle}>9823983301</div>
+        <div style={labelStyle}>{loanData.accountNumber}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <AlternateEmailOutlinedIcon style={iconStyle} />
         <div style={labellight}>Total Pledge Value</div>
-        <div style={labelStyle}>INR 1,00,000</div>
+        <div style={labelStyle}>{loanData.pledgeValue}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <HomeOutlinedIcon style={iconStyle} />
@@ -37,52 +40,52 @@ function LoanInfo() {
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Sanctioned Amount</div>
-        <div style={labelStyle}>INR 50,000</div>
+        <div style={labelStyle}>{loanData.sanctionedAmount}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <Security style={iconStyle} />
         <div style={labellight}>Current Security Value</div>
-        <div style={labelStyle}>INR 90,055</div>
+        <div style={labelStyle}>{loanData.securityValue}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <ErrorOutlineOutlinedIcon style={iconStyle} />
         <div style={labellight}>Allowed Margin</div>
-        <div style={labelStyle}>50%</div>
+        <div style={labelStyle}>{loanData.allowedMargin}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Drawing Power</div>
-        <div style={labelStyle}>INR 45,028</div>
+        <div style={labelStyle}>{loanData.drawingPower}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <WarningAmberOutlinedIcon style={iconStyle} />
         <div style={labellight}>Outstanding</div>
-        <div style={labelStyle}>INR 50,000</div>
+        <div style={labelStyle}>{loanData.outstanding}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <ReportOutlinedIcon style={iconStyle} />
         <div style={labellight}>Current Overdue</div>
-        <div style={labelStyle}>INR 4,972</div>
+        <div style={labelStyle}>{loanData.overdue}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <CurrencyRupeeIcon style={iconStyle} />
         <div style={labellight}>Additional Collateral Required</div>
-        <div style={labelStyle}>INR 9,944</div>
+        <div style={labelStyle}>{loanData.collateralRequired}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <ErrorOutlineOutlinedIcon style={iconStyle} />
-        <div style={labellight}>Margin Breached</div>
-        <div style={{ marginLeft: 'auto', ...iconStyle1 }}>44.50%</div>
+        <div style={labellight}>Margin </div>
+        <div style={{ marginLeft: 'auto', ...marginColorStyle }}>{loanData.marginBreached}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <MarkEmailReadOutlinedIcon style={iconStyle} />
         <div style={labellight}>Action Taken</div>
-        <div style={{ marginLeft: 'auto',marginRight:'99px' }}>Email initiated for 5 day deadline</div>
+        <div style={{ marginLeft: 'auto', ...MoveACtionTakeStyle }}>{loanData.actionTaken}</div>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', ...listItemStyle }}>
         <WarningAmberOutlinedIcon style={iconStyle} />
         <div style={labellight}>No. of Margin Breaches</div>
-        <div style={labelStyle}>2</div>
+        <div style={labelStyle}>{loanData.marginBreaches}</div>
       </div>
     </div>
   );

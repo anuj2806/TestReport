@@ -61,9 +61,16 @@ function AuthenticatedRoutes() {
 function CustomerPage() {
   const [customerDetail,setCustomerDetail]=useState(false);
   const [norecord,setnorecord]=useState(false);
-  const searchValue =(num)=>{
-    if(num == 22707978 || num == 9823983301){setCustomerDetail(true);setnorecord(false)}else{setCustomerDetail(false);setnorecord(true)};
-  }
+  const searchValue = (num) => {
+    const customerIDs = ["CT00062343", "DL240707106528"];
+    if (customerIDs.includes(num.trim())) {
+      setCustomerDetail(true);
+      setnorecord(false);
+    } else {
+      setCustomerDetail(false);
+      setnorecord(true);
+    }
+  };
  
   return (
     <>
