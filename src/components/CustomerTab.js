@@ -1,9 +1,11 @@
+// CustomerTab.js
 import React, { useState } from 'react';
 import { Box, Tabs, Tab, IconButton, CircularProgress, Backdrop } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import LoanInfo from './LoanInfo';
 import SellShares from './SellShares';
 import TestComponent from './TestComponent';
+import { fetchLMSData } from './LMSSECURITYAPI';
 
 export default function CustomerTab() {
   const [value, setValue] = useState(0);
@@ -12,7 +14,7 @@ export default function CustomerTab() {
 
   const initialLoanData = {
     accountNumber: "DL240707106528",
-    cif:"CT00062343",
+    cif: "CT00062343",
     pledgeValue: "INR 1,00,000",
     branch: "Navi Nerul",
     sanctionedAmount: "INR 50,000",
@@ -29,7 +31,7 @@ export default function CustomerTab() {
 
   const updatedLoanData = {
     accountNumber: "DL240707106528",
-    cif:"CT00062343",
+    cif: "CT00062343",
     pledgeValue: "INR 1,10,298",
     branch: "Navi Nerul",
     sanctionedAmount: " INR 55,149",
@@ -48,20 +50,28 @@ export default function CustomerTab() {
   const [highlightMargin, setHighlightMargin] = useState(false);
   const [moveActionTakeMargin, setMoveActionTakeMargin] = useState(false);
 
-  const handleRefresh = () => {
-    setMoveActionTakeMargin(true);
-    console.log("move action take margin reached");
-    setLoading(true); // Start loader
-    setTimeout(() => {
-    setLoanData(updatedLoanData);
-    setHighlightMargin(true);
-    setMoveActionTakeMargin(true);
+  const isinCodes = ["INE002A01018", "INE081A01012", "INE152A01029", "INE112A01023"];
 
-    // Toggle refresh state
-    setRefresh((prev) => !prev);
-    setLoading(false); // Stop loader after 12 seconds
-  }, 6000);
+  const handleRefresh = async () => {
     setMoveActionTakeMargin(true);
+    setLoading(true); // Start loader
+
+    try {
+      // Call fetchLMSData for each isinCode and log the result
+      for (let code of isinCodes) {
+        const response = await fetchLMSData(code);
+        console.log(`Response for ISIN ${code}:`, response);
+      }
+      
+      // Simulate data update after API calls
+      setLoanData(updatedLoanData);
+      setHighlightMargin(true);
+      setRefresh((prev) => !prev); // Toggle refresh state
+    } catch (error) {
+      console.error("Error during API calls:", error);
+    } finally {
+      setLoading(false); // Stop loader
+    }
   };
 
   const handleChange = (event, newValue) => {
