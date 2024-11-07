@@ -6,6 +6,7 @@ import { saveAs } from 'file-saver';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Loader from './SpinLoader'; // Import the Loader component
 import '../Styles/SpinLoader.css'; // Import your CSS styles
+import { fetchLMSData } from './LMSSECURITYAPI';
 
 const steps = [
   'Fetching Data',
@@ -16,6 +17,17 @@ const steps = [
   'Calculating Margin Breach',
   'Updating Dashboard'
 ];
+
+async function sendExcelDataToLMS(formattedExcelData){
+  if(formattedExcelData) {
+    console.log(formattedExcelData);
+    for(let i of formattedExcelData){
+      if(i["CIF"]&&i["Asset Id"]){
+      await fetchLMSData(i["Account Number"],i["ISIN Number"],i["Current Share Value(NAV)"],i["Total Shares"],i["Asset Id"]);
+      }
+    }
+  }
+}
 
 export default function ExcelToDataGrid() {
   const [excelData, setExcelData] = useState([]);
@@ -39,7 +51,7 @@ export default function ExcelToDataGrid() {
     }
   }, [loading]);
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     setLoading(true);
     const file = e.target.files[0];
     if (file) {
@@ -58,10 +70,13 @@ export default function ExcelToDataGrid() {
           }, { id: index + 1, ID: index + 1 }) // Add both 'id' and 'ID' properties
         );
 
+        
+
         // Simulate loading for 5 seconds
         setTimeout(() => {
           setExcelData(formattedData);
           setLoading(false);
+          sendExcelDataToLMS(formattedData);
         }, 15000);
       };
       reader.readAsArrayBuffer(file);
@@ -123,5 +138,7 @@ export default function ExcelToDataGrid() {
     </Box>
   );
 }
+
+
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';

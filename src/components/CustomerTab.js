@@ -13,8 +13,8 @@ export default function CustomerTab() {
   const [loading, setLoading] = useState(false);
 
   const initialLoanData = {
-    accountNumber: "DL240707106528",
-    cif: "CT00062343",
+    accountNumber: "DL240707106537",
+    cif: "CT00062352",
     pledgeValue: "INR 1,00,000",
     branch: "Navi Nerul",
     sanctionedAmount: "INR 50,000",
@@ -30,8 +30,8 @@ export default function CustomerTab() {
   };
 
   const updatedLoanData = {
-    accountNumber: "DL240707106528",
-    cif: "CT00062343",
+    accountNumber: "DL240707106537",
+    cif: "CT00062352",
     pledgeValue: "INR 1,10,298",
     branch: "Navi Nerul",
     sanctionedAmount: " INR 55,149",
@@ -51,6 +51,10 @@ export default function CustomerTab() {
   const [moveActionTakeMargin, setMoveActionTakeMargin] = useState(false);
 
   const isinCodes = ["INE002A01018", "INE081A01012", "INE152A01029", "INE112A01023"];
+  const shareValue = ["510","1010","4139","2760"];
+  const shareQty = ["25","93","19","8"];
+  const loanAccNo ="DL240707106537";
+  const assetids =["1241","1242","1243","1244"];
 
   const handleRefresh = async () => {
     setMoveActionTakeMargin(true);
@@ -58,10 +62,16 @@ export default function CustomerTab() {
 
     try {
       // Call fetchLMSData for each isinCode and log the result
-      for (let code of isinCodes) {
-        const response = await fetchLMSData(code);
-        console.log(`Response for ISIN ${code}:`, response);
+      for (let i = 0;i<4;i++) {
+        let assetIDuse=assetids[i];
+        let code = isinCodes[i];
+        let shareVal = shareValue[i];
+        let currShareQty = shareQty[i];
+        const response = await fetchLMSData(loanAccNo,code,shareVal,currShareQty,assetIDuse);
+        console.log(`Response for ISIN ${code} and ${shareVal} and assetID ${assetIDuse}:`, response);
       }
+      // const response = await fetchLMSData("DL240707106535","INE112A01024","60","500","1231");
+      // console.log(response);
       
       // Simulate data update after API calls
       setLoanData(updatedLoanData);

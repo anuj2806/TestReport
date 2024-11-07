@@ -96,12 +96,12 @@ function CustomerDetails() {
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
                   <InfoOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}
                   <div  sx={{ color: '#6E7787',fontFamily: 'Inter, sans-serif'}}>CIF</div>
-                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>CT00062343</div>
+                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>CT00062352</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
                   <InfoOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}
                   <div sx={{ color: '#6E7787',fontFamily: 'Inter, sans-serif'}}>Loan Account Number</div>
-                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>DL240707106528</div>
+                  <div style={{ marginLeft: 'auto',color: '#6E7787' }}>DL240707106537</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '21px' }}>
                   <HomeOutlinedIcon sx={{ color: '#0000FF', marginRight: 1 }} /> {/* Blue color */}

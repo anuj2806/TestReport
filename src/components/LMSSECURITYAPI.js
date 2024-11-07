@@ -1,10 +1,10 @@
 // LMSSECURITYAPI.js
 import axios from 'axios';
 
-export const fetchLMSData = async (isinCode) => {
+export const fetchLMSData = async (loanNum,isinCode,shareVal,currShareQty,assetId=0) => {
   const data = {
-    "assetId": "0",
-    "loanNo": "DL240707106528",
+    "assetId": assetId,
+    "loanNo": ""+loanNum,
     "assetType": "0",
     "assetClass": "0",
     "propertyDescription": "0",
@@ -34,19 +34,19 @@ export const fetchLMSData = async (isinCode) => {
     "brandOrigin": "USA",
     "assetMake": "MakeName",
     "vehicleManufacturerYear": "2020",
-    "isinCode": isinCode, // Pass ISIN code here
-    "qty": "60",
+    "isinCode": ""+isinCode, // Pass ISIN code here
+    "qty": ""+currShareQty,
     "navOfSaction": "500",
     "totalValueOfSanction": "55149",
     "currentNav": "325546",
-    "currentValue": "0",
+    "currentValue": ""+shareVal,
     "relelasedCity": "CityName",
     "marginAllowed": "50",
     "totalPledgeValue": "110298"
   };
 
   try {
-    const res = await axios.post('https://hnbdemo.newgensoftware.net:8443/LASLMS/lmsBRMS', data);
+    const res = await axios.post('https://oneibpsdemo.newgensoftware.net:8443/LASLMS/lmsBRMS', data);
     return res.data; // Return the response data
   } catch (err) {
     throw new Error(`Error fetching data for ISIN ${isinCode}: ${err.message}`);

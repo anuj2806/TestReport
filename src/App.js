@@ -62,7 +62,7 @@ function CustomerPage() {
   const [customerDetail,setCustomerDetail]=useState(false);
   const [norecord,setnorecord]=useState(false);
   const searchValue = (num) => {
-    const customerIDs = ["CT00062343", "DL240707106528"];
+    const customerIDs = ["CT00062352", "DL240707106537"];
     if (customerIDs.includes(num.trim())) {
       setCustomerDetail(true);
       setnorecord(false);
